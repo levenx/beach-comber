@@ -1,12 +1,12 @@
 {
-  "name": "@dumbo/react",
+  "name": "dumbooo",
   "version": "0.0.9-alpha.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "c0d48a8719a39e904c9c259e8720e22210c74edf",
+  "gitHead": "c32c896acc903ef581b025daaf83d88d7b41d463",
   "scripts": {
     "storybook": "start-storybook"
   },
