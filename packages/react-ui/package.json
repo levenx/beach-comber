@@ -5,5 +5,6 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "f8b399eff11b77bf80c78661a93ae2e134f9fbf8"
 }
