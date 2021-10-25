@@ -6,7 +6,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "ec9c99dd23ec1efc5c022c63ae1f3dc1d11582b1",
+  "gitHead": "917777a4ec574bd76182929d10c90e9c3a759477",
   "scripts": {
     "storybook": "start-storybook"
   },
