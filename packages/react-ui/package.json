@@ -1,12 +1,12 @@
 {
-  "name": "dumbo-ui",
+  "name": "@dumbo/react",
   "version": "0.0.5-alpha.0",
   "main": "index.js",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "917777a4ec574bd76182929d10c90e9c3a759477",
+  "gitHead": "7e1053cbc7254397d71b19c4c67ac23c9cc6e4ab",
   "scripts": {
     "storybook": "start-storybook"
   },
