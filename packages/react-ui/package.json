@@ -6,5 +6,23 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "f8b399eff11b77bf80c78661a93ae2e134f9fbf8"
+  "gitHead": "ec9c99dd23ec1efc5c022c63ae1f3dc1d11582b1",
+  "scripts": {
+    "storybook": "start-storybook"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@storybook/react": "^6.3.12",
+    "babel-loader": "^8.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rollup": "^2.58.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-less": "^1.1.3",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^4.4.4"
+  }
 }
