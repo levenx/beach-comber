@@ -1,19 +1,31 @@
 {
   "name": "dumbooo",
   "version": "0.0.10-alpha.0",
-  "main": "index.js",
+  "description": "小飞象 UI",
+  "main": "./lib/umd/dumbooo.js",
+  "module": "./lib/esm/dumbooo.js",
+  "types": "./lib/esm/index.d.ts",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "gitHead": "c32c896acc903ef581b025daaf83d88d7b41d463",
   "scripts": {
-    "storybook": "start-storybook"
+    "dev": "rollup -c rollup.config.js -w",
+    "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/cli": "^6.3.12",
     "@storybook/react": "^6.3.12",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
     "babel-loader": "^8.2.3",
+    "css-loader": "0.28.7",
+    "less": "^3.0.0-alpha.3",
+    "less-loader": "^4.0.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.58.1",
@@ -22,6 +34,7 @@
     "rollup-plugin-less": "^1.1.3",
     "rollup-plugin-typescript2": "^0.30.0",
     "rollup-plugin-uglify": "^6.0.4",
+    "style-loader": "^0.19.0",
     "typescript": "^4.4.4"
   }
 }
