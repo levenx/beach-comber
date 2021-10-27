@@ -8,14 +8,14 @@ export default {
   input: './components/index.tsx',
   output: [
     {
-      file: './lib/umd/sail-mobile.js',
-      name: 'SailUI',
+      file: './lib/umd/dumbooo.js',
+      name: 'DumboUI',
       format: 'umd',
       banner: '// welcome to levenx guard',
       sourcemap: true,
     },
     {
-      file: './lib/esm/sail-mobile.js',
+      file: './lib/esm/dumbooo.js',
       format: 'es',
       banner: '// welcome to levenx guard',
       sourcemap: true,
@@ -24,7 +24,7 @@ export default {
   plugins: [
     typescript(), // 会自动读取 文件tsconfig.json配置
     babel(),
-    less({ output: './lib/index.css' }),
+    less({ output: './lib/index.less'}),
     clear({
       targets: ['lib'],
       // watch: true,

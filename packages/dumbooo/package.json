@@ -12,7 +12,10 @@
   "gitHead": "c32c896acc903ef581b025daaf83d88d7b41d463",
   "scripts": {
     "dev": "rollup -c rollup.config.js -w",
-    "storybook": "start-storybook -p 6006"
+    "build": "",
+    "story": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006",
+    "story:build": "build-storybook -s public"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -20,6 +23,7 @@
     "@storybook/addon-links": "^6.3.12",
     "@storybook/cli": "^6.3.12",
     "@storybook/react": "^6.3.12",
+    "@types/classnames": "^2.3.1",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "babel-loader": "^8.2.3",
@@ -36,5 +40,8 @@
     "rollup-plugin-uglify": "^6.0.4",
     "style-loader": "^0.19.0",
     "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1"
   }
 }
