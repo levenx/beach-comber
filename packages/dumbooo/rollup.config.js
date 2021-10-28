@@ -5,7 +5,7 @@ import clear from 'rollup-plugin-clear';
 import { uglify } from 'rollup-plugin-uglify';
 
 export default {
-  input: './components/index.tsx',
+  input: ['./components/index.tsx'],
   output: [
     {
       file: './lib/umd/dumbooo.js',
@@ -24,7 +24,7 @@ export default {
   plugins: [
     typescript(), // 会自动读取 文件tsconfig.json配置
     babel(),
-    less({ output: './lib/index.less'}),
+    less({ output: './lib/index.less' }),
     clear({
       targets: ['lib'],
       // watch: true,

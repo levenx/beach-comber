@@ -9,21 +9,17 @@ declare const _default: {
                 type: string;
             };
         };
-        backgroundColor: {
-            control: string;
-        };
-        loadingState: {
+        type: {
             control: {
                 type: string;
                 options: string[];
             };
         };
-        width: {
+        shape: {
             control: {
                 type: string;
-                min: number;
-                max: number;
-                step: number;
+                options: string[];
+                default: string;
             };
         };
     };

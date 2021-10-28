@@ -5,28 +5,26 @@ export default {
     component: Drawer,
     title: 'Drawer',
     argTypes: {
-        backgroundColor: { control: 'color' },
-        loadingState: {
+        visible: {
             control: {
-                type: 'inline-radio',
-                options: ['loading', 'error', 'ready'],
+                type: 'boolean',
             },
         },
         width: {
             control: {
                 type: 'range',
-                min: 400,
-                max: 1200,
-                step: 50,
-            },
+                min: 100,
+                max: 800,
+                step: 1,
+            }
         }
     }
 };
 
 export const Base: FunctionComponent<ComponentProps<typeof Drawer>> = ({ ...props }) => {
-    console.log('--->',props)
+    console.log('--->', props)
     return <div>
-        <Drawer >
+        <Drawer {...props}>
             测试
         </Drawer>
     </div>
