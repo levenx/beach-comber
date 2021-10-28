@@ -21,7 +21,7 @@ export default {
     }
 };
 
-export const Base: FunctionComponent<ComponentProps<typeof Drawer>> = ({ ...props }) => {
+export const Default: FunctionComponent<ComponentProps<typeof Drawer>> = ({ ...props }) => {
     console.log('--->', props)
     return <div>
         <Drawer {...props}>
@@ -29,5 +29,3 @@ export const Base: FunctionComponent<ComponentProps<typeof Drawer>> = ({ ...prop
         </Drawer>
     </div>
 }
-
-// export const Large = () => <Base />
