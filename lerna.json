@@ -1,7 +1,17 @@
 {
+  "version": "independent",
+  "npmClient": "yarn",
   "packages": [
     "packages/*"
   ],
-  "version": "independent",
-  "npmClient": "yarn"
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "apps/*",
+        "services/*"
+      ],
+      "message": "chore(release): publish",
+      "registry": "http://registry.npmjs.org"
+    }
+  }
 }
