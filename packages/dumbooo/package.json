@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "c32c896acc903ef581b025daaf83d88d7b41d463",
+  "gitHead": "6975f0bcb23c9e3b1ea5b51098eeac2cc563ab9f",
   "scripts": {
     "dev": "rollup -c rollup.config.js -w",
     "build": "",
@@ -45,6 +45,7 @@
   "dependencies": {
     "@storybook/addon-options": "^5.3.21",
     "animate.css": "^4.1.1",
+    "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "react-transition-group": "^4.4.2"
   }

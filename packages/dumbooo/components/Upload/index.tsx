@@ -1,6 +1,7 @@
-import React, { ReactNode } from 'react';
+import React, { useRef, ReactNode, ChangeEvent } from 'react';
 import classnames from 'classnames';
 import { BaseType } from '../typing';
+import axios from 'axios';
 import './index.less';
 
 export interface IButton extends BaseType {
@@ -12,20 +13,26 @@ export interface IButton extends BaseType {
     disabled?: boolean;
 }
 
-export default function Button(props: IButton) {
+export default function Upload(props: IButton) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
+    const uploadRef = useRef<HTMLInputElement>(null);
+
+    const onUploadClick = () => {
+        uploadRef.current.click();
+    }
+
     return (
         <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
+            <div onClick={onUploadClick}>上传</div>
+            <input ref={uploadRef} type="file" style={{ display: 'none' }} onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                const files = event.target.files;
+                const formData = new FormData();
+                formData.append('smfile', files[0]);
+
+                axios.post('https://sm.ms/api/v2/upload', formData, { headers: { 'Authorization': 'qHBehsTVcfRaaOMjfPYcZ8C1jxnIa0S7' } }).then(res=>{
+                    debugger
+                })
+            }} />
         </div>
     )
 }
