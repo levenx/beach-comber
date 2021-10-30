@@ -1,31 +1,25 @@
-import React, { ReactNode } from 'react';
+import React, { useMemo } from 'react';
 import classnames from 'classnames';
 import { BaseType } from '../typing';
+import '../style/font.css';
 import './index.less';
 
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+export interface IconProps extends BaseType {
+    name: string;
+    size?: number;
+    color?: string;
 }
 
-export default function Button(props: IButton) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
+export default function Icon(props: IconProps) {
+    const { name, size = 18, color = '#333', className = '', onClick, } = props;
+
+    const targetClass = useMemo(() => {
+        return `iconfont icon-${name} ${className}`;
+    }, [name])
+
     return (
         <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
+            <span className={targetClass} style={{ fontSize: size, color }} />
         </div>
     )
 }

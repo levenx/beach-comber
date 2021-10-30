@@ -1,5 +1,7 @@
 import React, { useState, useRef, ReactNode, ChangeEvent } from 'react';
 import classnames from 'classnames';
+import Progress from '../Progress';
+import Icon from '../Icon';
 import { BaseType } from '../typing';
 import axios from 'axios';
 import './index.less';
@@ -16,6 +18,8 @@ export interface IButton extends BaseType {
 export default function Upload(props: IButton) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     const uploadRef = useRef<HTMLInputElement>(null);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [picture, setPicture] = useState(null);
     const [pictures, setPictures] = useState<Array<string>>([]);
 
     const onUploadClick = () => {
@@ -31,17 +35,37 @@ export default function Upload(props: IButton) {
                     </div>
                 })
             }
-            <div className="dumbo-upload--item">
-                <div onClick={onUploadClick}>上传</div>
+
+            <div className="dumbo-upload--item dumbo-upload--add" onClick={onUploadClick}>
+                {
+                    loading ?
+                        <>
+                            <Progress percent={picture.percent} />
+                        </>
+                        :
+                        <>
+                            <Icon name="zengjia" />
+                            <div>上传</div>
+                        </>
+                }
             </div>
 
             <input ref={uploadRef} type="file" style={{ display: 'none' }} onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                const files = event.target.files;
+                const file = event.target.files[0];
                 const formData = new FormData();
-                formData.append('file', files[0]);
-                axios.post('http://localhost:8810/public/upload/git', formData,).then(res => {
+                formData.append('file', file);
+                setLoading(true)
+                setPicture({ name: file.name });
+                axios.post('https://custom.expand.levenx.com/public/upload/git', formData, {
+                    onUploadProgress: progressEvent => {
+                        let percent = (progressEvent.loaded / progressEvent.total * 100 | 0)
+                        console.log('complete:', percent)
+                        setPicture({ ...picture, percent });
+                    }
+                }).then(res => {
                     const image = res.data.data.url;
                     setPictures([...pictures, image]);
+                    setLoading(false)
                 })
             }} />
         </div>

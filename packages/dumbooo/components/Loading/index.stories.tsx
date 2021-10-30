@@ -1,37 +1,31 @@
 import React, { FunctionComponent, ComponentProps } from 'react';
-import Button from './index';
+import Loading from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
-    component: Button,
-    title: 'Button',
+    component: Loading,
+    title: 'Loading',
     argTypes: {
-        block: {
+        loading: {
             control: {
                 type: 'boolean',
-            },
-        },
-        type: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'primary', 'danger', 'dashed', 'text', 'link']
             }
         },
-        shape: {
+        size: {
             control: {
-                type: 'inline-radio',
-                options: ['default', 'circle', 'round'],
-                default: 'default'
+                type: 'range',
+                min: 100,
+                max: 800,
+                step: 1,
             }
-        },
+        }
     }
 };
 
-export const Default: FunctionComponent<ComponentProps<typeof Button>> = ({ ...props }) => {
-    console.log('--->', props)
+export const Default: FunctionComponent<ComponentProps<typeof Loading>> = ({ ...props }) => {
+
     return <div>
-        <Button onClick={() => { console.log('click!!') }} {...props}>
-            测试
-        </Button>
+        <Loading loading={true}  {...props}>
+        </Loading>
     </div>
 }
