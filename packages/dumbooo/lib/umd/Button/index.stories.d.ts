@@ -25,4 +25,4 @@ declare const _default: {
     };
 };
 export default _default;
-export declare const Base: FunctionComponent<ComponentProps<typeof Button>>;
+export declare const Default: FunctionComponent<ComponentProps<typeof Button>>;

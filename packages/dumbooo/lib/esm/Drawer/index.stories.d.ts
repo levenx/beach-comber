@@ -4,13 +4,9 @@ declare const _default: {
     component: typeof Drawer;
     title: string;
     argTypes: {
-        backgroundColor: {
-            control: string;
-        };
-        loadingState: {
+        visible: {
             control: {
                 type: string;
-                options: string[];
             };
         };
         width: {
@@ -24,4 +20,4 @@ declare const _default: {
     };
 };
 export default _default;
-export declare const Base: FunctionComponent<ComponentProps<typeof Drawer>>;
+export declare const Default: FunctionComponent<ComponentProps<typeof Drawer>>;

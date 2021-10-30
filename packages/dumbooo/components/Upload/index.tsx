@@ -1,4 +1,4 @@
-import React, { useRef, ReactNode, ChangeEvent } from 'react';
+import React, { useState, useRef, ReactNode, ChangeEvent } from 'react';
 import classnames from 'classnames';
 import { BaseType } from '../typing';
 import axios from 'axios';
@@ -16,21 +16,32 @@ export interface IButton extends BaseType {
 export default function Upload(props: IButton) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     const uploadRef = useRef<HTMLInputElement>(null);
+    const [pictures, setPictures] = useState<Array<string>>([]);
 
     const onUploadClick = () => {
         uploadRef.current.click();
     }
 
     return (
-        <div>
-            <div onClick={onUploadClick}>上传</div>
+        <div className="dumbo-upload">
+            {
+                pictures.map(picture => {
+                    return <div className="dumbo-upload--item">
+                        <img src={picture} />
+                    </div>
+                })
+            }
+            <div className="dumbo-upload--item">
+                <div onClick={onUploadClick}>上传</div>
+            </div>
+
             <input ref={uploadRef} type="file" style={{ display: 'none' }} onChange={(event: ChangeEvent<HTMLInputElement>) => {
                 const files = event.target.files;
                 const formData = new FormData();
-                formData.append('smfile', files[0]);
-
-                axios.post('https://sm.ms/api/v2/upload', formData, { headers: { 'Authorization': 'qHBehsTVcfRaaOMjfPYcZ8C1jxnIa0S7' } }).then(res=>{
-                    debugger
+                formData.append('file', files[0]);
+                axios.post('http://localhost:8810/public/upload/git', formData,).then(res => {
+                    const image = res.data.data.url;
+                    setPictures([...pictures, image]);
                 })
             }} />
         </div>
