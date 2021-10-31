@@ -1,10 +1,10 @@
 import React, { FunctionComponent, ComponentProps } from 'react';
-import Button from './index';
+import Icon from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
-    component: Button,
-    title: 'Button',
+    component: Icon,
+    title: 'Icon',
     argTypes: {
         block: {
             control: {
@@ -27,11 +27,11 @@ export default {
     }
 };
 
-export const Default: FunctionComponent<ComponentProps<typeof Button>> = ({ ...props }) => {
+export const Default: FunctionComponent<ComponentProps<typeof Icon>> = ({ ...props }) => {
     console.log('--->', props)
     return <div>
-        <Button onClick={() => { console.log('click!!') }} {...props}>
+        <Icon name="aixin" size={24} onClick={() => { console.log('click!!') }} {...props}>
             测试
-        </Button>
+        </Icon>
     </div>
 }

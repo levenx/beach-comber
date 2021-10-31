@@ -12,6 +12,8 @@ export interface IButton extends BaseType {
     disabled?: boolean;
 }
 
+
+
 export default function Button(props: IButton) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     return (
