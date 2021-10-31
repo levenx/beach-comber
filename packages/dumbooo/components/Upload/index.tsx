@@ -56,7 +56,9 @@ export default function Upload(props: IButton) {
                 formData.append('file', file);
                 setLoading(true)
                 setPicture({ name: file.name });
-                axios.post('https://custom.expand.levenx.com/public/upload/git', formData, {
+                // const url = 'https://custom.expand.levenx.com/public/upload/git';
+                const url = 'http://localhost:8810/public/upload/free'
+                axios.post(url, formData, {
                     onUploadProgress: progressEvent => {
                         let percent = (progressEvent.loaded / progressEvent.total * 100 | 0)
                         console.log('complete:', percent)
