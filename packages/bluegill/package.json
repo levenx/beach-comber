@@ -1,6 +1,6 @@
 {
   "name": "bluegill",
-  "version": "0.0.5-alpha.0",
+  "version": "0.0.6-alpha.0",
   "description": "太阳鱼附件上传",
   "main": "./lib/index.js",
   "types": "./lib/*/index.d.ts",
