@@ -1,0 +1,1 @@
+{"version":3,"file":"client.js","sources":["../src/client/index.ts"],"sourcesContent":["console.log('client')"],"names":[],"mappings":";AAAA,OAAO,CAAC,GAAG,CAAC,QAAQ,CAAC"}
