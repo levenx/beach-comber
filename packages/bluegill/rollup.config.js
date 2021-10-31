@@ -15,7 +15,7 @@ export default {
     // },
     {
       dir: './lib/',
-      format: 'es',
+      format: 'cjs',
       banner: '// welcome to levenx guard',
       sourcemap: true,
     },

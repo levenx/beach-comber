@@ -1,7 +1,9 @@
 // welcome to levenx guard
+'use strict';
+
 function Bluegill() {
     console.log('Bluegill');
 }
 
-export { Bluegill as default };
+module.exports = Bluegill;
 //# sourceMappingURL=server.js.map
