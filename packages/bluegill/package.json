@@ -1,13 +1,16 @@
 {
   "name": "bluegill",
-  "version": "0.0.4-alpha.0",
+  "version": "0.0.5-alpha.0",
   "description": "太阳鱼附件上传",
   "main": "./lib/index.js",
   "types": "./lib/*/index.d.ts",
   "scripts": {
     "dev": "rollup -c rollup.config.js -w"
   },
-  "keywords": ["git","upload"],
+  "keywords": [
+    "git",
+    "upload"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
