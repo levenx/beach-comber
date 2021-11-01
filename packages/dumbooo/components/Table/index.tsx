@@ -6,9 +6,12 @@ import './index.less';
 export interface ITable {
     /**
      * 是否展示外边框和列边框
-     * @Default true
+     * @default true
      */
     bordered?: boolean;
+    /**
+     * 自定义行类名
+     */
     rowClassName?: string;
     columns: any;
     dataSource: any[];
@@ -34,22 +37,10 @@ export default function Table(props: ITable) {
                     {dataSource.map((rowitem: any) => {
                         return (
                             <tr>
-                                {columns.map((item: any) => (<td className="dumbo-table-cell">{item.render || rowitem[item.key]}</td>))}
+                                {columns.map((item: any) => (<td key={item.dataIndex} className="dumbo-table-cell">{item.render?.(rowitem[item.key], rowitem) || rowitem[item.key]}</td>))}
                             </tr>
                         )
                     })}
-                    {/* <tr>
-                        <td className="dumbo-table-cell">单元格</td>
-                        <td className="dumbo-table-cell">单元格</td>
-                        <td className="dumbo-table-cell">单元格</td>
-                        <td className="dumbo-table-cell">单元格</td>
-                    </tr>
-                    <tr>
-                        <td className="dumbo-table-cell">单元格</td>
-                        <td className="dumbo-table-cell">单元格</td>
-                        <td className="dumbo-table-cell">单元格</td>
-                        <td className="dumbo-table-cell">单元格</td>
-                    </tr> */}
                 </tbody>
             </table>
         </div>
