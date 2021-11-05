@@ -6,30 +6,38 @@ import { BaseType } from '../typing';
 import axios from 'axios';
 import './index.less';
 
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+export interface IUpload extends BaseType {
+    onUpload: (file: File, onProgress: (progressEvent: any) => void) => Promise<string>;
+    files: Array<string>;
 }
 
-export default function Upload(props: IButton) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
+export default function Upload(props: IUpload) {
+    const { files, onUpload } = props;
     const uploadRef = useRef<HTMLInputElement>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [picture, setPicture] = useState(null);
-    const [pictures, setPictures] = useState<Array<string>>([]);
 
     const onUploadClick = () => {
         uploadRef.current.click();
     }
 
+    const onUploadChange = (file: File) => {
+
+        setLoading(true)
+        setPicture({ name: file.name });
+
+        onUpload(file, (progressEvent: any) => {
+            let percent = (progressEvent.loaded / progressEvent.total * 100 | 0)
+            setPicture({ ...picture, percent });
+        }).then(file => {
+            setLoading(false);
+        })
+    }
+
     return (
         <div className="dumbo-upload">
             {
-                pictures.map(picture => {
+                files.map(picture => {
                     return <div className="dumbo-upload--item">
                         <img src={picture} />
                     </div>
@@ -50,26 +58,13 @@ export default function Upload(props: IButton) {
                 }
             </div>
 
-            <input ref={uploadRef} type="file" style={{ display: 'none' }} onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                const file = event.target.files[0];
-                const formData = new FormData();
-                formData.append('file', file);
-                setLoading(true)
-                setPicture({ name: file.name });
-                // const url = 'https://custom.expand.levenx.com/public/upload/git';
-                const url = 'http://localhost:8810/public/upload/free'
-                axios.post(url, formData, {
-                    onUploadProgress: progressEvent => {
-                        let percent = (progressEvent.loaded / progressEvent.total * 100 | 0)
-                        console.log('complete:', percent)
-                        setPicture({ ...picture, percent });
-                    }
-                }).then(res => {
-                    const image = res.data.data.url;
-                    setPictures([...pictures, image]);
-                    setLoading(false)
-                })
-            }} />
+            <input ref={uploadRef}
+                type="file"
+                style={{ display: 'none' }}
+                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                    const file = event.target.files[0];
+                    onUploadChange(file);
+                }} />
         </div>
     )
 }
