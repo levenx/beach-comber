@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import Progress from '../Progress';
 import Icon from '../Icon';
 import { BaseType } from '../typing';
-import axios from 'axios';
 import './index.less';
 
 export interface IUpload extends BaseType {

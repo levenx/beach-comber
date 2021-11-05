@@ -1,6 +1,28 @@
 body {
   border: 1px solid;
 }
+.drawer {
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+  transform: translateX(100%);
+  transition: transform 200ms;
+}
+.drawer-appear {
+  transform: translateX(0);
+}
+.drawer-enter {
+  transform: translateX(100%);
+}
+.drawer-enter-active {
+  transform: translateX(100%);
+}
+.drawer-enter-done {
+  transform: translateX(0);
+}
 .dumbo-upload {
   border: 1 solid;
   display: flex;
@@ -27,27 +49,164 @@ body {
   align-items: center;
   justify-content: center;
 }
-.drawer {
-  padding: 10px;
+@font-face {
+  font-family: "iconfont";
+  /* Project id 2904070 */
+  src: url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.woff2?t=1635602486382') format('woff2'), url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.woff?t=1635602486382') format('woff'), url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.ttf?t=1635602486382') format('truetype');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-jian:before {
+  content: "\e600";
+}
+.icon-cuowu:before {
+  content: "\e601";
+}
+.icon-zengjia:before {
+  content: "\e6ea";
+}
+.icon-shanchu:before {
+  content: "\e8b6";
+}
+.icon-aixin:before {
+  content: "\e8ab";
+}
+.icon-bianji:before {
+  content: "\e8ac";
+}
+.icon-bangzhu:before {
+  content: "\e8ad";
+}
+.icon-buganxingqu:before {
+  content: "\e8ae";
+}
+.icon-fenxiang:before {
+  content: "\e8b0";
+}
+.icon-jianshao:before {
+  content: "\e8b1";
+}
+.icon-shouji:before {
+  content: "\e8b9";
+}
+.icon-taolunqu:before {
+  content: "\e8ba";
+}
+.icon-WIFI:before {
+  content: "\e8c1";
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
-  bottom: 0;
-  right: 0;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
-  transform: translateX(100%);
-  transition: transform 200ms;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
 }
-.drawer-appear {
-  transform: translateX(0);
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
 }
-.drawer-enter {
-  transform: translateX(100%);
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
 }
-.drawer-enter-active {
-  transform: translateX(100%);
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
 }
-.drawer-enter-done {
-  transform: translateX(0);
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
 }
 .dumbo-loading {
   position: relative;
@@ -105,165 +264,6 @@ body {
   to {
     opacity: 0.5;
   }
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-@font-face {
-  font-family: "iconfont";
-  /* Project id 2904070 */
-  src: url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.woff2?t=1635602486382') format('woff2'), url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.woff?t=1635602486382') format('woff'), url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.ttf?t=1635602486382') format('truetype');
-}
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-jian:before {
-  content: "\e600";
-}
-.icon-cuowu:before {
-  content: "\e601";
-}
-.icon-zengjia:before {
-  content: "\e6ea";
-}
-.icon-shanchu:before {
-  content: "\e8b6";
-}
-.icon-aixin:before {
-  content: "\e8ab";
-}
-.icon-bianji:before {
-  content: "\e8ac";
-}
-.icon-bangzhu:before {
-  content: "\e8ad";
-}
-.icon-buganxingqu:before {
-  content: "\e8ae";
-}
-.icon-fenxiang:before {
-  content: "\e8b0";
-}
-.icon-jianshao:before {
-  content: "\e8b1";
-}
-.icon-shouji:before {
-  content: "\e8b9";
-}
-.icon-taolunqu:before {
-  content: "\e8ba";
-}
-.icon-WIFI:before {
-  content: "\e8c1";
 }
 .dumbo-progress {
   width: 100%;
