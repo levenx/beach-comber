@@ -45,7 +45,7 @@
     }
 
     function Upload(props) {
-        const { files, onUpload } = props;
+        const { files, onUpload, mode = "default", onItemClick } = props;
         const uploadRef = React.useRef(null);
         const [loading, setLoading] = React.useState(false);
         const [picture, setPicture] = React.useState(null);
@@ -62,11 +62,12 @@
                 setLoading(false);
             });
         };
+        const onImageClick = (file) => {
+            if (mode) {
+                onItemClick(file);
+            }
+        };
         return (React__default["default"].createElement("div", { className: "dumbo-upload" },
-            files.map(picture => {
-                return React__default["default"].createElement("div", { className: "dumbo-upload--item" },
-                    React__default["default"].createElement("img", { src: picture }));
-            }),
             React__default["default"].createElement("div", { className: "dumbo-upload--item dumbo-upload--add", onClick: onUploadClick }, loading ?
                 React__default["default"].createElement(React__default["default"].Fragment, null,
                     React__default["default"].createElement(Progress, { percent: picture.percent }))
@@ -74,6 +75,10 @@
                     React__default["default"].createElement(React__default["default"].Fragment, null,
                         React__default["default"].createElement(Icon, { name: "zengjia" }),
                         React__default["default"].createElement("div", null, "\u4E0A\u4F20"))),
+            files.map(picture => {
+                return React__default["default"].createElement("div", { className: "dumbo-upload--item", onClick: () => onImageClick(picture) },
+                    React__default["default"].createElement("img", { src: picture }));
+            }),
             React__default["default"].createElement("input", { ref: uploadRef, type: "file", style: { display: 'none' }, onChange: (event) => {
                     const file = event.target.files[0];
                     onUploadChange(file);

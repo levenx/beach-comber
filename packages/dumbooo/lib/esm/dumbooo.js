@@ -39,7 +39,7 @@ function Icon(props) {
 }
 
 function Upload(props) {
-    const { files, onUpload } = props;
+    const { files, onUpload, mode = "default", onItemClick } = props;
     const uploadRef = useRef(null);
     const [loading, setLoading] = useState(false);
     const [picture, setPicture] = useState(null);
@@ -56,11 +56,12 @@ function Upload(props) {
             setLoading(false);
         });
     };
+    const onImageClick = (file) => {
+        if (mode) {
+            onItemClick(file);
+        }
+    };
     return (React.createElement("div", { className: "dumbo-upload" },
-        files.map(picture => {
-            return React.createElement("div", { className: "dumbo-upload--item" },
-                React.createElement("img", { src: picture }));
-        }),
         React.createElement("div", { className: "dumbo-upload--item dumbo-upload--add", onClick: onUploadClick }, loading ?
             React.createElement(React.Fragment, null,
                 React.createElement(Progress, { percent: picture.percent }))
@@ -68,6 +69,10 @@ function Upload(props) {
                 React.createElement(React.Fragment, null,
                     React.createElement(Icon, { name: "zengjia" }),
                     React.createElement("div", null, "\u4E0A\u4F20"))),
+        files.map(picture => {
+            return React.createElement("div", { className: "dumbo-upload--item", onClick: () => onImageClick(picture) },
+                React.createElement("img", { src: picture }));
+        }),
         React.createElement("input", { ref: uploadRef, type: "file", style: { display: 'none' }, onChange: (event) => {
                 const file = event.target.files[0];
                 onUploadChange(file);

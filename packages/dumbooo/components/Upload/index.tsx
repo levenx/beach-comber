@@ -8,10 +8,12 @@ import './index.less';
 export interface IUpload extends BaseType {
     onUpload: (file: File, onProgress: (progressEvent: any) => void) => Promise<string>;
     files: Array<string>;
+    mode: 'modal' | 'default';
+    onItemClick: (image: string) => void;
 }
 
 export default function Upload(props: IUpload) {
-    const { files, onUpload } = props;
+    const { files, onUpload, mode = "default", onItemClick } = props;
     const uploadRef = useRef<HTMLInputElement>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [picture, setPicture] = useState(null);
@@ -33,16 +35,14 @@ export default function Upload(props: IUpload) {
         })
     }
 
+    const onImageClick = (file: string) => {
+        if (mode) {
+            onItemClick(file);
+        }
+    }
+
     return (
         <div className="dumbo-upload">
-            {
-                files.map(picture => {
-                    return <div className="dumbo-upload--item">
-                        <img src={picture} />
-                    </div>
-                })
-            }
-
             <div className="dumbo-upload--item dumbo-upload--add" onClick={onUploadClick}>
                 {
                     loading ?
@@ -57,6 +57,14 @@ export default function Upload(props: IUpload) {
                 }
             </div>
 
+            {
+                files.map(picture => {
+                    return <div className="dumbo-upload--item" onClick={() => onImageClick(picture)}>
+                        <img src={picture} />
+                    </div>
+                })
+            }
+            
             <input ref={uploadRef}
                 type="file"
                 style={{ display: 'none' }}
