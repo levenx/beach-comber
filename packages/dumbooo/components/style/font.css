@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2904070 */
-  src: url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.woff2?t=1635602486382') format('woff2'),
-       url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.woff?t=1635602486382') format('woff'),
-       url('//at.alicdn.com/t/font_2904070_sp8ziv2doqr.ttf?t=1635602486382') format('truetype');
+  src: url('//at.alicdn.com/t/font_2904070_5xdx8yr8ygj.woff2?t=1636169366848') format('woff2'),
+       url('//at.alicdn.com/t/font_2904070_5xdx8yr8ygj.woff?t=1636169366848') format('woff'),
+       url('//at.alicdn.com/t/font_2904070_5xdx8yr8ygj.ttf?t=1636169366848') format('truetype');
 }
 
 .iconfont {
@@ -13,19 +13,67 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-jian:before {
+.icon-dumbo-close-circle:before {
+  content: "\e6a7";
+}
+
+.icon-dumbo-download-circle:before {
+  content: "\e694";
+}
+
+.icon-video:before {
+  content: "\e639";
+}
+
+.icon-dumbo-bullist:before {
+  content: "\e67e";
+}
+
+.icon-dumbo-numlist:before {
+  content: "\e67f";
+}
+
+.icon-dumbo-decrease-circle:before {
+  content: "\e62a";
+}
+
+.icon-browser:before {
+  content: "\e698";
+}
+
+.icon-dumbo-star:before {
+  content: "\e8bb";
+}
+
+.icon-music:before {
+  content: "\e8c0";
+}
+
+.icon-dumbo-plus-circle:before {
+  content: "\e8c2";
+}
+
+.icon-dumbo-star-fill:before {
+  content: "\e8c7";
+}
+
+.icon-preview:before {
+  content: "\e626";
+}
+
+.icon-dumbo-decrease:before {
   content: "\e600";
 }
 
-.icon-cuowu:before {
+.icon-dumbo-jam:before {
   content: "\e601";
 }
 
-.icon-zengjia:before {
+.icon-dumbo-plus:before {
   content: "\e6ea";
 }
 
-.icon-shanchu:before {
+.icon-dumbo-bin:before {
   content: "\e8b6";
 }
 
@@ -61,7 +109,6 @@
   content: "\e8ba";
 }
 
-.icon-WIFI:before {
+.icon-dumbo-wifi:before {
   content: "\e8c1";
 }
-

@@ -6,14 +6,14 @@ import { BaseType } from '../typing';
 import './index.less';
 
 export interface IUpload extends BaseType {
-    onUpload: (file: File, onProgress: (progressEvent: any) => void) => Promise<string>;
+    onUpload: (file: File, onProgress: (progressEvent: ProgressEvent) => void) => Promise<string>;
     files: Array<string>;
-    mode: 'modal' | 'default';
-    onItemClick: (image: string) => void;
+    mode?: 'modal' | 'default';
+    onImageClick?: (image: string) => void;
 }
 
 export default function Upload(props: IUpload) {
-    const { files, onUpload, mode = "default", onItemClick } = props;
+    const { files = [], onUpload, mode = "default", onImageClick } = props;
     const uploadRef = useRef<HTMLInputElement>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [picture, setPicture] = useState(null);
@@ -27,7 +27,7 @@ export default function Upload(props: IUpload) {
         setLoading(true)
         setPicture({ name: file.name });
 
-        onUpload(file, (progressEvent: any) => {
+        onUpload(file, (progressEvent: ProgressEvent) => {
             let percent = (progressEvent.loaded / progressEvent.total * 100 | 0)
             setPicture({ ...picture, percent });
         }).then(file => {
@@ -35,9 +35,9 @@ export default function Upload(props: IUpload) {
         })
     }
 
-    const onImageClick = (file: string) => {
+    const onClick = (file: string) => {
         if (mode) {
-            onItemClick(file);
+            onImageClick(file);
         }
     }
 
@@ -51,26 +51,27 @@ export default function Upload(props: IUpload) {
                         </>
                         :
                         <>
-                            <Icon name="zengjia" />
-                            <div>上传</div>
+                            <Icon name="plus" size={32} color="#876d6d"/>
                         </>
                 }
             </div>
 
             {
                 files.map(picture => {
-                    return <div className="dumbo-upload--item" onClick={() => onImageClick(picture)}>
+                    return <div className="dumbo-upload--item" onClick={() => onClick(picture)}>
                         <img src={picture} />
                     </div>
                 })
             }
-            
+
             <input ref={uploadRef}
                 type="file"
                 style={{ display: 'none' }}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const file = event.target.files[0];
-                    onUploadChange(file);
+                    const file = event.target.files?.[0];
+                    if (file) {
+                        onUploadChange(file);
+                    }
                 }} />
         </div>
     )

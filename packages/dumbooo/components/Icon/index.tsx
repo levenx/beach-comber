@@ -14,12 +14,12 @@ export default function Icon(props: IconProps) {
     const { name, size = 18, color = '#333', className = '', onClick, } = props;
 
     const targetClass = useMemo(() => {
-        return `iconfont icon-${name} ${className}`;
+        return `iconfont icon-dumbo-${name} ${className}`;
     }, [name])
 
     return (
         <div>
-            <span className={targetClass} style={{ fontSize: size, color }} />
+            <span className={targetClass} style={{ fontSize: size, color }} onClick={onClick}/>
         </div>
     )
 }

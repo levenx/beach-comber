@@ -6,32 +6,15 @@ export default {
     component: MediaPreview,
     title: 'MediaPreview',
     argTypes: {
-        block: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        type: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'primary', 'danger', 'dashed', 'text', 'link']
-            }
-        },
-        shape: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'circle', 'round'],
-                default: 'default'
-            }
-        },
+
     }
 };
 
 export const Default: FunctionComponent<ComponentProps<typeof MediaPreview>> = ({ ...props }) => {
     console.log('--->', props)
+    const medias = ['https://cdn.jsdelivr.net/gh/levenx/picture@master/material/24548436ec3e47beb28b237716b04a99.png'];
     return <div>
-        <MediaPreview onClick={() => { console.log('click!!') }} {...props}>
-            测试
+        <MediaPreview {...props} medias={medias}>
         </MediaPreview>
     </div>
 }
