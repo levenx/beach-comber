@@ -1,6 +1,6 @@
 {
   "name": "dumbooo",
-  "version": "0.0.19-alpha.0",
+  "version": "0.0.20-alpha.0",
   "description": "小飞象 UI",
   "main": "./lib/umd/dumbooo.js",
   "module": "./lib/esm/dumbooo.js",
