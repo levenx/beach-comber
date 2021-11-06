@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "6975f0bcb23c9e3b1ea5b51098eeac2cc563ab9f",
+  "gitHead": "3671c97de8cbe3436be6c832221d6ed66af120e5",
   "scripts": {
     "dev": "concurrently \"npm run storybook\" \"npm run compile\"",
     "compile": "rollup -c rollup.config.js -w",
