@@ -82,6 +82,7 @@ function Upload(props) {
 
 function MediaPreview(props) {
     const { visible, onClose, medias = [] } = props;
+    const [copy, setCopy] = useState(false);
     const onDownload = (url) => {
         const xhr = new XMLHttpRequest();
         xhr.open('get', url);
@@ -101,8 +102,24 @@ function MediaPreview(props) {
             }
         };
     };
+    const onCopy = () => {
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        input.setAttribute('value', medias?.[0]);
+        input.select();
+        if (document.execCommand('copy')) {
+            document.execCommand('copy');
+            console.log('复制成功');
+        }
+        document.body.removeChild(input);
+        setCopy(true);
+        setTimeout(() => {
+            setCopy(false);
+        }, 3000);
+    };
     const operates = [
         { icon: 'download-circle', onClick: () => onDownload(medias[0]) },
+        { icon: copy ? 'right-fill' : 'copy', onClick: () => onCopy() },
         { icon: 'decrease-circle', onClick: () => { } },
         { icon: 'plus-circle', onClick: () => { } },
         { icon: 'close-circle', onClick: onClose }
