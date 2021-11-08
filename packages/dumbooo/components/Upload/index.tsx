@@ -51,7 +51,7 @@ export default function Upload(props: IUpload) {
                         </>
                         :
                         <>
-                            <Icon name="plus" size={32} color="#876d6d"/>
+                            <Icon name="picture" size={28} color="#dcdee0"/>
                         </>
                 }
             </div>

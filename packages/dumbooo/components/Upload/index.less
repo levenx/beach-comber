@@ -3,32 +3,54 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
 
-  &--item {
+.dumbo-upload--item {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  cursor: pointer;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
+.dumbo-upload--add {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 901px) {
+  .dumbo-upload--item {
     border: 1px dashed #e1e1e1;
     width: 120px;
     height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 8px;
-    cursor: pointer;
 
     &:active {
       border: 1px dashed rgba(58, 97, 238, 0.5);
     }
-
-    img {
-      max-height: 100%;
-      max-width: 100%;
-    }
   }
+}
 
-  .dumbo-upload--add {
+@media screen and (max-width: 900px) {
+  .dumbo-upload--item {
+    background: #f7f8fa;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    border-radius: 4px;
+
+    &:active {
+      background: #b5bcd3;
+    }
   }
 }

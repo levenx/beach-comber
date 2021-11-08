@@ -73,7 +73,7 @@
                     React__default["default"].createElement(Progress, { percent: picture.percent }))
                 :
                     React__default["default"].createElement(React__default["default"].Fragment, null,
-                        React__default["default"].createElement(Icon, { name: "plus", size: 32, color: "#876d6d" }))),
+                        React__default["default"].createElement(Icon, { name: "picture", size: 28, color: "#dcdee0" }))),
             files.map(picture => {
                 return React__default["default"].createElement("div", { className: "dumbo-upload--item", onClick: () => onClick(picture) },
                     React__default["default"].createElement("img", { src: picture }));

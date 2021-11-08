@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2904070 */
-  src: url('//at.alicdn.com/t/font_2904070_5xdx8yr8ygj.woff2?t=1636169366848') format('woff2'),
-       url('//at.alicdn.com/t/font_2904070_5xdx8yr8ygj.woff?t=1636169366848') format('woff'),
-       url('//at.alicdn.com/t/font_2904070_5xdx8yr8ygj.ttf?t=1636169366848') format('truetype');
+  src: url('//at.alicdn.com/t/font_2904070_2mgot6e8jd1.woff2?t=1636348751943') format('woff2'),
+       url('//at.alicdn.com/t/font_2904070_2mgot6e8jd1.woff?t=1636348751943') format('woff'),
+       url('//at.alicdn.com/t/font_2904070_2mgot6e8jd1.ttf?t=1636348751943') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,22 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dumbo-picture:before {
+  content: "\e606";
+}
+
+.icon-dumbo-camera:before {
+  content: "\e612";
+}
+
+.icon-dumbo-right-fill:before {
+  content: "\e8bd";
+}
+
+.icon-dumbo-copy:before {
+  content: "\e63d";
 }
 
 .icon-dumbo-close-circle:before {
