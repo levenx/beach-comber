@@ -67,7 +67,7 @@ function Upload(props) {
                 React.createElement(Progress, { percent: picture.percent }))
             :
                 React.createElement(React.Fragment, null,
-                    React.createElement(Icon, { name: "plus", size: 32, color: "#876d6d" }))),
+                    React.createElement(Icon, { name: "picture", size: 28, color: "#dcdee0" }))),
         files.map(picture => {
             return React.createElement("div", { className: "dumbo-upload--item", onClick: () => onClick(picture) },
                 React.createElement("img", { src: picture }));

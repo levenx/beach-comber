@@ -4,28 +4,17 @@ import { BaseType } from '../typing';
 import './index.less';
 
 export interface AvatarProps extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+    src: string;
+    alt?: string;
+    size?: 'large' | 'middle' | 'small' | number;
+    shape?: 'circle' | 'round';
 }
 
 export default function Avatar(props: AvatarProps) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
+    const { src, alt, shape, size, onClick, } = props;
     return (
         <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
+            <img src={src} alt={alt} />
         </div>
     )
 }
