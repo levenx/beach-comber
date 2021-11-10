@@ -2,11 +2,9 @@
 import { BaseType } from '../typing';
 import './index.less';
 export interface AvatarProps extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+    src: string;
+    alt?: string;
+    size?: 'large' | 'middle' | 'small' | number;
+    shape?: 'circle' | 'round';
 }
 export default function Avatar(props: AvatarProps): JSX.Element;

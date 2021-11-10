@@ -1,3 +1,330 @@
+.drawer {
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+  transform: translateX(100%);
+  transition: transform 200ms;
+}
+.drawer-appear {
+  transform: translateX(0);
+}
+.drawer-enter {
+  transform: translateX(100%);
+}
+.drawer-enter-active {
+  transform: translateX(100%);
+}
+.drawer-enter-done {
+  transform: translateX(0);
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-media--preview {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  padding: 10%;
+  user-select: none;
+  transform: scale(0);
+  transition: all 200ms;
+}
+.dumbo-media--preview .media-preview--operate {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  padding: 0 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.dumbo-media--preview .media-preview--icon {
+  cursor: pointer;
+}
+.dumbo-media--preview img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.preview {
+  transform: scale(1);
+}
+.dumbo-loading {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+.dumbo-loading span {
+  width: 5%;
+  height: 20%;
+  background: #3a61ee;
+  position: absolute;
+  left: 45%;
+  top: 40%;
+  opacity: 0;
+  animation: loading 1s linear infinite;
+  border-radius: 30px;
+}
+.dumbo-loading span:nth-child(1) {
+  transform: rotate(0deg) translate(0, -120%);
+  animation-delay: 0s;
+}
+.dumbo-loading span:nth-child(2) {
+  transform: rotate(-45deg) translate(0, -120%);
+  animation-delay: -0.125s;
+}
+.dumbo-loading span:nth-child(3) {
+  transform: rotate(-90deg) translate(0, -120%);
+  animation-delay: -0.25s;
+}
+.dumbo-loading span:nth-child(4) {
+  transform: rotate(-135deg) translate(0, -120%);
+  animation-delay: -0.375s;
+}
+.dumbo-loading span:nth-child(5) {
+  transform: rotate(-180deg) translate(0, -120%);
+  animation-delay: -0.5s;
+}
+.dumbo-loading span:nth-child(6) {
+  transform: rotate(-225deg) translate(0, -120%);
+  animation-delay: -0.625s;
+}
+.dumbo-loading span:nth-child(7) {
+  transform: rotate(-270deg) translate(0, -120%);
+  animation-delay: -0.75s;
+}
+.dumbo-loading span:nth-child(8) {
+  transform: rotate(-315deg) translate(0, -120%);
+  animation-delay: -0.875s;
+}
+@keyframes loading {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-upload {
+  border: 1 solid;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.dumbo-upload--item {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  cursor: pointer;
+}
+.dumbo-upload--item img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.dumbo-upload--add {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 901px) {
+  .dumbo-upload--item {
+    border: 1px dashed #e1e1e1;
+    width: 120px;
+    height: 120px;
+    padding: 8px;
+  }
+  .dumbo-upload--item:active {
+    border: 1px dashed rgba(58, 97, 238, 0.5);
+  }
+}
+@media screen and (max-width: 900px) {
+  .dumbo-upload--item {
+    background: #f7f8fa;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .dumbo-upload--item:active {
+    background: #b5bcd3;
+  }
+}
 @font-face {
   font-family: "iconfont";
   /* Project id 2904070 */
@@ -97,392 +424,65 @@
 .icon-dumbo-wifi:before {
   content: "\e8c1";
 }
-.dumbo-upload {
-  border: 1 solid;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.dumbo-upload--item {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
-.dumbo-upload--item img {
-  max-height: 100%;
-  max-width: 100%;
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
 }
-.dumbo-upload--add {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
 }
-@media screen and (min-width: 901px) {
-  .dumbo-upload--item {
-    border: 1px dashed #e1e1e1;
-    width: 120px;
-    height: 120px;
-    padding: 8px;
-  }
-  .dumbo-upload--item:active {
-    border: 1px dashed rgba(58, 97, 238, 0.5);
-  }
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
 }
-@media screen and (max-width: 900px) {
-  .dumbo-upload--item {
-    background: #f7f8fa;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  .dumbo-upload--item:active {
-    background: #b5bcd3;
-  }
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
 }
 .dumbo-button {
   background: #e1e1e1;
   color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.drawer {
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
-  transform: translateX(100%);
-  transition: transform 200ms;
-}
-.drawer-appear {
-  transform: translateX(0);
-}
-.drawer-enter {
-  transform: translateX(100%);
-}
-.drawer-enter-active {
-  transform: translateX(100%);
-}
-.drawer-enter-done {
-  transform: translateX(0);
-}
-.dumbo-media--preview {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 999;
-  padding: 10%;
-  user-select: none;
-  transform: scale(0);
-  transition: all 200ms;
-}
-.dumbo-media--preview .media-preview--operate {
-  background: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 48px;
-  padding: 0 24px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  justify-content: flex-end;
-}
-.dumbo-media--preview .media-preview--icon {
-  cursor: pointer;
-}
-.dumbo-media--preview img {
-  max-height: 100%;
-  width: 100%;
-  object-fit: contain;
-}
-.preview {
-  transform: scale(1);
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-loading {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  display: inline-block;
-}
-.dumbo-loading span {
-  width: 5%;
-  height: 20%;
-  background: #3a61ee;
-  position: absolute;
-  left: 45%;
-  top: 40%;
-  opacity: 0;
-  animation: loading 1s linear infinite;
-  border-radius: 30px;
-}
-.dumbo-loading span:nth-child(1) {
-  transform: rotate(0deg) translate(0, -120%);
-  animation-delay: 0s;
-}
-.dumbo-loading span:nth-child(2) {
-  transform: rotate(-45deg) translate(0, -120%);
-  animation-delay: -0.125s;
-}
-.dumbo-loading span:nth-child(3) {
-  transform: rotate(-90deg) translate(0, -120%);
-  animation-delay: -0.25s;
-}
-.dumbo-loading span:nth-child(4) {
-  transform: rotate(-135deg) translate(0, -120%);
-  animation-delay: -0.375s;
-}
-.dumbo-loading span:nth-child(5) {
-  transform: rotate(-180deg) translate(0, -120%);
-  animation-delay: -0.5s;
-}
-.dumbo-loading span:nth-child(6) {
-  transform: rotate(-225deg) translate(0, -120%);
-  animation-delay: -0.625s;
-}
-.dumbo-loading span:nth-child(7) {
-  transform: rotate(-270deg) translate(0, -120%);
-  animation-delay: -0.75s;
-}
-.dumbo-loading span:nth-child(8) {
-  transform: rotate(-315deg) translate(0, -120%);
-  animation-delay: -0.875s;
-}
-@keyframes loading {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.5;
-  }
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
   padding: 8px 20px;
   cursor: pointer;
   position: relative;
@@ -1413,6 +1413,556 @@
   background: #fff;
   border: 1px solid #ccc;
   color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dumbo-alert--message {
+  display: flex;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-all;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 16px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.dumbo-alert {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 4px 8px;
+}
+.dumbo-alert--success {
+  background: #b7eb8f;
+}
+.dumbo-alert--info {
+  background: #91d5ff;
+}
+.dumbo-alert--warning {
+  background: #ffe58f;
+}
+.dumbo-alert--error {
+  background: #ffccc7;
+}
+.dumbo-alert--message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 14px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ebedf0;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ebedf0;
+  color: #323333;
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ebedf0;
+  color: #323333;
 }
 .dumbo-button--default::after {
   background-image: radial-gradient(circle, #ccc 10%, transparent 11%);

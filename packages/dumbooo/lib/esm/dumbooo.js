@@ -4,7 +4,7 @@ import React, { useMemo, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 
-function Button$k(props) {
+function Button$j(props) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     return (React.createElement("div", null,
         React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
@@ -133,7 +133,7 @@ function MediaPreview(props) {
         })));
 }
 
-function Button$j(props) {
+function Button$i(props) {
     const { size, loading, children } = props;
     return (React.createElement(React.Fragment, null, loading ? React.createElement("div", { className: "dumbo-loading", style: { width: size, height: size } },
         React.createElement("span", null),
@@ -148,7 +148,7 @@ function Button$j(props) {
             children));
 }
 
-function Button$i(props) {
+function Button$h(props) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     return (React.createElement("div", null,
         React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
@@ -158,14 +158,13 @@ function Button$i(props) {
             }), onClick: onClick }, children)));
 }
 
-function Button$h(props) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
-    return (React.createElement("div", null,
-        React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
-                'dumbo-button--block': block,
-                'dumbo-button--circle': shape === 'circle',
-                'dumbo-button--disabled': disabled
-            }), onClick: onClick }, children)));
+function Alert(props) {
+    const { icon, showIcon, type = 'info', message, closeable, onClose, style } = props;
+    return (React.createElement("div", { className: `dumbo-alert dumbo-alert--${type}`, style: style },
+        React.createElement("div", { className: "dumbo-alert--message" },
+            showIcon && (icon || React.createElement(Icon, { name: "picture" })),
+            React.createElement("span", null, message)),
+        closeable && React.createElement(Icon, { name: "close-circle" })));
 }
 
 function Button$g(props) {
@@ -338,5 +337,5 @@ function Button(props) {
             }), onClick: onClick }, children)));
 }
 
-export { Button$h as Alert, Button$g as Badge, Button$k as Button, Button$f as Card, Button$e as DatePicker, Drawer, Button$2 as Empty, Button$c as Form, Icon, Button$b as Input, Button$j as Loading, MediaPreview, Button$4 as Message, Button$3 as Modal, Button$5 as Notification, Button$7 as Popver, Button$a as Radio, Button$i as Skeleton, Button$1 as Steps, Button$9 as Switch, Button as Tag, Button$d as TimePicker, Button$8 as Timeline, Button$6 as Tooltip, Upload };
+export { Alert, Button$g as Badge, Button$j as Button, Button$f as Card, Button$e as DatePicker, Drawer, Button$2 as Empty, Button$c as Form, Icon, Button$b as Input, Button$i as Loading, MediaPreview, Button$4 as Message, Button$3 as Modal, Button$5 as Notification, Button$7 as Popver, Button$a as Radio, Button$h as Skeleton, Button$1 as Steps, Button$9 as Switch, Button as Tag, Button$d as TimePicker, Button$8 as Timeline, Button$6 as Tooltip, Upload };
 //# sourceMappingURL=dumbooo.js.map

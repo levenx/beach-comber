@@ -10,7 +10,7 @@
     var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
     var classnames__default = /*#__PURE__*/_interopDefaultLegacy(classnames);
 
-    function Button$k(props) {
+    function Button$j(props) {
         const { type = "default", block, shape, disabled, children, onClick, } = props;
         return (React__default["default"].createElement("div", null,
             React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
@@ -139,7 +139,7 @@
             })));
     }
 
-    function Button$j(props) {
+    function Button$i(props) {
         const { size, loading, children } = props;
         return (React__default["default"].createElement(React__default["default"].Fragment, null, loading ? React__default["default"].createElement("div", { className: "dumbo-loading", style: { width: size, height: size } },
             React__default["default"].createElement("span", null),
@@ -154,7 +154,7 @@
                 children));
     }
 
-    function Button$i(props) {
+    function Button$h(props) {
         const { type = "default", block, shape, disabled, children, onClick, } = props;
         return (React__default["default"].createElement("div", null,
             React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
@@ -164,14 +164,13 @@
                 }), onClick: onClick }, children)));
     }
 
-    function Button$h(props) {
-        const { type = "default", block, shape, disabled, children, onClick, } = props;
-        return (React__default["default"].createElement("div", null,
-            React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
-                    'dumbo-button--block': block,
-                    'dumbo-button--circle': shape === 'circle',
-                    'dumbo-button--disabled': disabled
-                }), onClick: onClick }, children)));
+    function Alert(props) {
+        const { icon, showIcon, type = 'info', message, closeable, onClose, style } = props;
+        return (React__default["default"].createElement("div", { className: `dumbo-alert dumbo-alert--${type}`, style: style },
+            React__default["default"].createElement("div", { className: "dumbo-alert--message" },
+                showIcon && (icon || React__default["default"].createElement(Icon, { name: "picture" })),
+                React__default["default"].createElement("span", null, message)),
+            closeable && React__default["default"].createElement(Icon, { name: "close-circle" })));
     }
 
     function Button$g(props) {
@@ -344,9 +343,9 @@
                 }), onClick: onClick }, children)));
     }
 
-    exports.Alert = Button$h;
+    exports.Alert = Alert;
     exports.Badge = Button$g;
-    exports.Button = Button$k;
+    exports.Button = Button$j;
     exports.Card = Button$f;
     exports.DatePicker = Button$e;
     exports.Drawer = Drawer;
@@ -354,14 +353,14 @@
     exports.Form = Button$c;
     exports.Icon = Icon;
     exports.Input = Button$b;
-    exports.Loading = Button$j;
+    exports.Loading = Button$i;
     exports.MediaPreview = MediaPreview;
     exports.Message = Button$4;
     exports.Modal = Button$3;
     exports.Notification = Button$5;
     exports.Popver = Button$7;
     exports.Radio = Button$a;
-    exports.Skeleton = Button$i;
+    exports.Skeleton = Button$h;
     exports.Steps = Button$1;
     exports.Switch = Button$9;
     exports.Tag = Button;

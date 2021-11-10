@@ -1,37 +1,24 @@
 import React, { FunctionComponent, ComponentProps } from 'react';
-import Button from './index';
+import Alert from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
-    component: Button,
-    title: 'Button',
+    component: Alert,
+    title: 'Alert',
     argTypes: {
-        block: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        type: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'primary', 'danger', 'dashed', 'text', 'link']
-            }
-        },
-        shape: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'circle', 'round'],
-                default: 'default'
-            }
-        },
+
     }
 };
 
-export const Default: FunctionComponent<ComponentProps<typeof Button>> = ({ ...props }) => {
-    console.log('--->', props)
+export const Default: FunctionComponent<ComponentProps<typeof Alert>> = ({ ...props }) => {
+    const message = 'Info Description Info Description Info Description Info Description';
+    const types: Array<'success' | 'warning' | 'info' | 'error'> = ['success', 'info', 'warning', 'error']
     return <div>
-        <Button onClick={() => { console.log('click!!') }} {...props}>
-            测试
-        </Button>
+        {
+            types.map(type => {
+                return <Alert {...props} message={message} type={type} style={{ marginBottom: 20 }} />
+            })
+        }
+
     </div>
 }

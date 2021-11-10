@@ -1,12 +1,12 @@
-/// <reference types="react" />
+import { ReactNode } from 'react';
 import { BaseType } from '../typing';
 import './index.less';
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+export interface IAlert extends BaseType {
+    icon?: ReactNode;
+    showIcon?: boolean;
+    type: 'success' | 'warning' | 'info' | 'error';
+    message: ReactNode;
+    closeable?: boolean;
+    onClose?: (event: MouseEvent) => void;
 }
-export default function Button(props: IButton): JSX.Element;
+export default function Alert(props: IAlert): JSX.Element;
