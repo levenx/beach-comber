@@ -6,7 +6,7 @@
 
 <br/>
 <div align="center">
-<h2>Dumbooo</h2>
+<h2>小飞象</h2>
 </div>
 
 <div align="center">
@@ -17,11 +17,11 @@ A comprehensive React UI components library based on the [小飞象](https://arc
 
 <div align="center">
 
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
 </div>
 
-# Component List
+# 组件列表
 
 - [ ] (for unchecked checkbox)
 - [x] (for checked checkbox)
