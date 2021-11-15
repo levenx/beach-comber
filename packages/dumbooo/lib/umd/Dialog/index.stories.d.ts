@@ -7,3 +7,4 @@ declare const _default: {
 };
 export default _default;
 export declare const Default: FunctionComponent<ComponentProps<typeof Dialog>>;
+export declare const Method: FunctionComponent<ComponentProps<typeof Dialog>>;

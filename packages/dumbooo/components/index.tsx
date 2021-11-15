@@ -7,7 +7,7 @@ export { default as Curtain } from './Curtain';
 export { default as DatePicker } from './DatePicker';
 export { default as Drawer, DrawerProps } from './Drawer';
 export { default as Empty } from './Empty';
-export { default as Form } from './Form';
+// export { default as Form } from './Form';
 export { default as Icon } from './Icon';
 export { default as Input } from './Input';
 export { default as Loading } from './Loading';

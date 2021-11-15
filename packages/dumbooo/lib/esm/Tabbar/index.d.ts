@@ -1,12 +1,20 @@
-/// <reference types="react" />
-import { BaseType } from '../typing';
+import React, { Component, ReactNode } from 'react';
+import Icon from '../icon/index';
 import './index.less';
-export interface TabbarProps extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+interface TabBarItemProps {
+    icon: typeof Icon | string | ReactNode;
+    selectedIcon?: typeof Icon | string | ReactNode;
+    selected?: boolean;
+    title: string | ReactNode;
+    dot?: boolean;
+    onClick?: () => void;
 }
-export default function Tabbar(props: TabbarProps): JSX.Element;
+interface TabBarProps {
+    children: Array<any>;
+    fixed?: boolean;
+}
+export default class TabBar extends Component<TabBarProps, any> {
+    static Item: React.FC<TabBarItemProps>;
+    render(): JSX.Element;
+}
+export {};

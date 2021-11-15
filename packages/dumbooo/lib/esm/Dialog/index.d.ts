@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { BaseType } from '../typing';
 import './index.less';
-interface IDialog extends BaseType {
+export interface IDialog extends BaseType {
     title: string;
     content: string;
     onClose?: () => void;
