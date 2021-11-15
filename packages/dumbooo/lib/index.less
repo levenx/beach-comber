@@ -1,71 +1,3 @@
-.dumbo-avatar {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background: #c1c1c1;
-  width: 32px;
-  height: 32px;
-}
-.dumbo-avatar--circle {
-  border-radius: 4px;
-}
-.dumbo-avatar--round {
-  border-radius: 50%;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
 .dumbo-button {
   background: #e1e1e1;
   color: #fff;
@@ -155,6 +87,74 @@
   background-color: #ee0a24;
   border-radius: 100%;
 }
+.dumbo-avatar {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: #c1c1c1;
+  width: 32px;
+  height: 32px;
+}
+.dumbo-avatar--circle {
+  border-radius: 4px;
+}
+.dumbo-avatar--round {
+  border-radius: 50%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
 .dumbo-button {
   background: #e1e1e1;
   color: #fff;
@@ -262,6 +262,28 @@
 }
 .dumbo-button--block {
   width: 100%;
+}
+.drawer {
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+  transform: translateX(100%);
+  transition: transform 200ms;
+}
+.drawer-appear {
+  transform: translateX(0);
+}
+.drawer-enter {
+  transform: translateX(100%);
+}
+.drawer-enter-active {
+  transform: translateX(100%);
+}
+.drawer-enter-done {
+  transform: translateX(0);
 }
 .dumbo-alert {
   display: flex;
@@ -289,105 +311,6 @@
   font-size: 14px;
   word-wrap: break-word;
   word-break: break-all;
-}
-.drawer {
-  padding: 10px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
-  transform: translateX(100%);
-  transition: transform 200ms;
-}
-.drawer-appear {
-  transform: translateX(0);
-}
-.drawer-enter {
-  transform: translateX(100%);
-}
-.drawer-enter-active {
-  transform: translateX(100%);
-}
-.drawer-enter-done {
-  transform: translateX(0);
-}
-.sail-form {
-  display: block;
-  margin-top: 0em;
-}
-.sail-item-label {
-  flex: none;
-  box-sizing: border-box;
-  width: 6.2em;
-  margin-right: 12px;
-  color: #646566;
-  text-align: left;
-  word-wrap: break-word;
-}
-.sail-item-value {
-  overflow: visible;
-  position: relative;
-  overflow: hidden;
-  color: #969799;
-  text-align: right;
-  vertical-align: middle;
-  word-wrap: break-word;
-  flex: 1;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
 }
 .dumbo-curtain {
   display: flex;
@@ -422,60 +345,6 @@
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.4);
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
 }
 .dumbo-loading {
   position: relative;
@@ -534,6 +403,114 @@
     opacity: 0.5;
   }
 }
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
 .dumbo-media--preview {
   position: fixed;
   left: 0;
@@ -570,6 +547,421 @@
 }
 .preview {
   transform: scale(1);
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 8px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.dumbo-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(12, 12);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+.dumbo-button:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: rgba(0, 0, 0, 0.65);
+}
+.dumbo-button--default::after {
+  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+}
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+.dumbo-button--danger {
+  background: #e44444;
+}
+.dumbo-button--circle {
+  border-radius: 1.5em;
+}
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+.dumbo-button--block {
+  width: 100%;
+}
+.dumbo-progress {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+.dumbo-progress--percent {
+  position: relative;
+  height: 10px;
+  background-color: #1890ff;
+  background-image: linear-gradient(to right, #108ee9 0%, #87d068 100%);
+  transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+  border-radius: 10px;
+}
+.dumbo-progress--percent::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 10px;
+  opacity: 0.3;
+  animation: loading-active 2.4s infinite cubic-bezier(0.68, 0.17, 0.79, 0.81);
+  content: '';
+}
+@keyframes loading-active {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 @font-face {
   font-family: "iconfont";
@@ -1048,341 +1440,6 @@
 .dumbo-button--block {
   width: 100%;
 }
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-progress {
-  width: 100%;
-  overflow: hidden;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-}
-.dumbo-progress--percent {
-  position: relative;
-  height: 10px;
-  background-color: #1890ff;
-  background-image: linear-gradient(to right, #108ee9 0%, #87d068 100%);
-  transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
-  border-radius: 10px;
-}
-.dumbo-progress--percent::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #fff;
-  border-radius: 10px;
-  opacity: 0.3;
-  animation: loading-active 2.4s infinite cubic-bezier(0.68, 0.17, 0.79, 0.81);
-  content: '';
-}
-@keyframes loading-active {
-  0% {
-    transform: translateX(-100%);
-  }
-  60% {
-    transform: translateX(-20%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.sail-tabbar {
-  z-index: 1;
-  display: flex;
-  box-sizing: content-box;
-  width: 100%;
-  height: 50px;
-  background-color: #fff;
-}
-.sail-tabbar-item {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #646566;
-  font-size: 12px;
-  line-height: 1;
-  cursor: pointer;
-}
-.sail-tabbar-item-icon {
-  position: relative;
-  margin-bottom: 7px;
-  font-size: 16px;
-}
-.sail-tabbar-fixed {
-  position: fixed;
-  bottom: 0;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
 .dumbo-upload {
   border: 1 solid;
   display: flex;
@@ -1431,114 +1488,6 @@
   .dumbo-upload--item:active {
     background: #b5bcd3;
   }
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
-}
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.dumbo-button::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(12, 12);
-  opacity: 0;
-  transition: transform 0.6s, opacity 0.6s;
-}
-.dumbo-button:active::after {
-  transform: scale(0, 0);
-  opacity: 0.3;
-  transition: 0s;
-}
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-}
-.dumbo-button--default::after {
-  background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-}
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-.dumbo-button--danger {
-  background: #e44444;
-}
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-.dumbo-button--block {
-  width: 100%;
 }
 .dumbo-button {
   background: #e1e1e1;

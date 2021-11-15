@@ -1,5 +1,5 @@
 // welcome to levenx guard
-import React, { useMemo, useState, Component, useRef } from 'react';
+import React, { useMemo, useState, useRef } from 'react';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 
@@ -296,19 +296,6 @@ function Button$5(props) {
             }), onClick: onClick }, children)));
 }
 
-const Item = ({ icon, title, onClick }) => {
-    return React.createElement("div", { className: "sail-tabbar-item", onClick: onClick },
-        React.createElement("div", { className: "sail-tabbar-item-icon" }, icon),
-        React.createElement("div", { className: "sail-tabbar-item-text" }, title));
-};
-class TabBar extends Component {
-    static Item = Item;
-    render() {
-        const { children, fixed } = this.props;
-        return (React.createElement("div", { className: classnames("sail-tabbar", { "sail-tabbar-fixed": fixed }) }, children));
-    }
-}
-
 function Button$4(props) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     return (React.createElement("div", null,
@@ -401,5 +388,5 @@ function Upload(props) {
             } })));
 }
 
-export { Alert, Avatar, Badge, Button$j as Button, Button$i as Card, Curtain, Button$h as DatePicker, Drawer, Button$g as Empty, Icon, Input, Button$f as Loading, MediaPreview, Button$e as Message, Button$d as Modal, Button$c as Notification, Button$b as Pagination, Button$a as Popconfirm, Button$9 as Popver, Progress, Button$8 as Radio, Button$7 as Skeleton, Button$6 as Steps, Button$5 as Switch, TabBar as Tabbar, Button$4 as Table, Button$3 as Tag, Button$1 as TimePicker, Button$2 as Timeline, Button as Tooltip, Upload };
+export { Alert, Avatar, Badge, Button$j as Button, Button$i as Card, Curtain, Button$h as DatePicker, Drawer, Button$g as Empty, Icon, Input, Button$f as Loading, MediaPreview, Button$e as Message, Button$d as Modal, Button$c as Notification, Button$b as Pagination, Button$a as Popconfirm, Button$9 as Popver, Progress, Button$8 as Radio, Button$7 as Skeleton, Button$6 as Steps, Button$5 as Switch, Button$4 as Table, Button$3 as Tag, Button$1 as TimePicker, Button$2 as Timeline, Button as Tooltip, Upload };
 //# sourceMappingURL=dumbooo.js.map

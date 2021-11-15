@@ -303,19 +303,6 @@
                 }), onClick: onClick }, children)));
     }
 
-    const Item = ({ icon, title, onClick }) => {
-        return React__default["default"].createElement("div", { className: "sail-tabbar-item", onClick: onClick },
-            React__default["default"].createElement("div", { className: "sail-tabbar-item-icon" }, icon),
-            React__default["default"].createElement("div", { className: "sail-tabbar-item-text" }, title));
-    };
-    class TabBar extends React.Component {
-        static Item = Item;
-        render() {
-            const { children, fixed } = this.props;
-            return (React__default["default"].createElement("div", { className: classnames__default["default"]("sail-tabbar", { "sail-tabbar-fixed": fixed }) }, children));
-        }
-    }
-
     function Button$4(props) {
         const { type = "default", block, shape, disabled, children, onClick, } = props;
         return (React__default["default"].createElement("div", null,
@@ -432,7 +419,6 @@
     exports.Skeleton = Button$7;
     exports.Steps = Button$6;
     exports.Switch = Button$5;
-    exports.Tabbar = TabBar;
     exports.Table = Button$4;
     exports.Tag = Button$3;
     exports.TimePicker = Button$1;
