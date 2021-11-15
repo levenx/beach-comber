@@ -1,64 +1,26 @@
-.dumbo-button {
-  background: #e1e1e1;
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  padding: 8px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+.sail-form {
+  display: block;
+  margin-top: 0em;
+}
 
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: radial-gradient(circle, #fff 10%, transparent 11%);
-    background-repeat: no-repeat;
-    background-position: 50%;
-    transform: scale(12, 12);
-    opacity: 0;
-    transition: transform 0.6s, opacity 0.6s;
+.sail-item {
+  &-label {
+    flex: none;
+    box-sizing: border-box;
+    width: 6.2em;
+    margin-right: 12px;
+    color: #646566;
+    text-align: left;
+    word-wrap: break-word;
   }
-
-  &:active::after {
-    transform: scale(0, 0);
-    opacity: 0.3;
-    //设置初始状态
-    transition: 0s;
+  &-value {
+    overflow: visible;
+    position: relative;
+    overflow: hidden;
+    color: #969799;
+    text-align: right;
+    vertical-align: middle;
+    word-wrap: break-word;
+    flex: 1;
   }
-}
-
-.dumbo-button--default {
-  background: #fff;
-  border: 1px solid #ccc;
-  color: rgba(0, 0, 0, 0.65);
-
-  &::after {
-    background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
-  }
-}
-
-.dumbo-button--primary {
-  background: #3a61ee;
-}
-
-.dumbo-button--danger {
-  background: #e44444;
-}
-
-.dumbo-button--circle {
-  border-radius: 1.5em;
-}
-
-.dumbo-button--disabled {
-  filter: opacity(0.5);
-  cursor: not-allowed;
-}
-
-.dumbo-button--block {
-  width: 100%;
 }

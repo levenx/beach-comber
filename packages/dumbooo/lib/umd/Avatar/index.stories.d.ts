@@ -1,28 +1,9 @@
 import { FunctionComponent, ComponentProps } from 'react';
-import Button from './index';
+import Avatar from './index';
 declare const _default: {
-    component: typeof Button;
+    component: typeof Avatar;
     title: string;
-    argTypes: {
-        block: {
-            control: {
-                type: string;
-            };
-        };
-        type: {
-            control: {
-                type: string;
-                options: string[];
-            };
-        };
-        shape: {
-            control: {
-                type: string;
-                options: string[];
-                default: string;
-            };
-        };
-    };
+    argTypes: {};
 };
 export default _default;
-export declare const Default: FunctionComponent<ComponentProps<typeof Button>>;
+export declare const Default: FunctionComponent<ComponentProps<typeof Avatar>>;

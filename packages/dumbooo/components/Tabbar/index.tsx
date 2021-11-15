@@ -1,31 +1,42 @@
-import React, { ReactNode } from 'react';
+import React, { FC, Component, ReactNode } from 'react';
+import Icon from '../icon/index';
 import classnames from 'classnames';
-import { BaseType } from '../typing';
 import './index.less';
 
-export interface TabbarProps extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+
+interface TabBarItemProps {
+    icon: typeof Icon | string | ReactNode;
+    selectedIcon?: typeof Icon | string | ReactNode;
+    selected?: boolean;
+    title: string | ReactNode;
+    dot?: boolean;
+    onClick?: () => void;
 }
 
-export default function Tabbar(props: TabbarProps) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
-    return (
-        <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
+const Item: FC<TabBarItemProps> = ({ icon, title, onClick }) => {
+    return <div className="sail-tabbar-item" onClick={onClick}>
+        <div className="sail-tabbar-item-icon">
+            {icon}
         </div>
-    )
+        <div className="sail-tabbar-item-text">
+            {title}
+        </div>
+    </div>
+}
+
+interface TabBarProps {
+    children: Array<any>;
+    fixed?: boolean;
+}
+
+export default class TabBar extends Component<TabBarProps, any> {
+    static Item = Item;
+    render() {
+        const { children, fixed } = this.props;
+        return (
+            <div className={classnames("sail-tabbar", { "sail-tabbar-fixed": fixed })}>
+                {children}
+            </div>
+        )
+    }
 }

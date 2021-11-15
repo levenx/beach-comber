@@ -1,12 +1,29 @@
-/// <reference types="react" />
+import { FC, Component, ReactNode } from 'react';
 import { BaseType } from '../typing';
 import './index.less';
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+interface FormItemProps {
+    label: string | ReactNode;
+    name: string | number;
+    value?: string | number;
+    rules?: any;
+    trigger?: any;
+    children?: any;
+    onChange?: (name: string, value: any) => void;
 }
-export default function Button(props: IButton): JSX.Element;
+declare const FormItem: FC<FormItemProps>;
+export { FormItem };
+export interface FormProps extends BaseType {
+    initialValues?: Object;
+    onValuesChange?: () => void;
+    onSubmit?: (values: any) => void;
+    children: typeof FormItem[] | typeof FormItem | any;
+}
+interface FormState {
+    values: Object;
+    name?: string;
+}
+export default class Form extends Component<FormProps, FormState> {
+    constructor(props: FormProps);
+    onChange: (name: string, value: any) => void;
+    render(): JSX.Element;
+}

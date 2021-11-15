@@ -1,20 +1,21 @@
 import React, { FunctionComponent, ComponentProps } from 'react';
-import Tabbar from './index';
+import TabBar from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
-    component: Tabbar,
-    title: 'Tabbar',
+    component: TabBar,
+    title: 'TabBar',
     argTypes: {
 
     }
 };
 
-export const Default: FunctionComponent<ComponentProps<typeof Tabbar>> = ({ ...props }) => {
+export const Default: FunctionComponent<ComponentProps<typeof TabBar>> = ({ ...props }) => {
     console.log('--->', props)
     return <div>
-        <Tabbar onClick={() => { console.log('click!!') }} {...props}>
-            测试
-        </Tabbar>
+        <TabBar  {...props}>
+            <div>测试1</div>
+            <div>测试2</div>
+        </TabBar>
     </div>
 }

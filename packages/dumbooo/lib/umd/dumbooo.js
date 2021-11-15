@@ -10,7 +10,7 @@
     var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
     var classnames__default = /*#__PURE__*/_interopDefaultLegacy(classnames);
 
-    function Button$j(props) {
+    function Button$g(props) {
         const { type = "default", block, shape, disabled, children, onClick, } = props;
         return (React__default["default"].createElement("div", null,
             React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
@@ -139,7 +139,7 @@
             })));
     }
 
-    function Button$i(props) {
+    function Button$f(props) {
         const { size, loading, children } = props;
         return (React__default["default"].createElement(React__default["default"].Fragment, null, loading ? React__default["default"].createElement("div", { className: "dumbo-loading", style: { width: size, height: size } },
             React__default["default"].createElement("span", null),
@@ -154,7 +154,7 @@
                 children));
     }
 
-    function Button$h(props) {
+    function Button$e(props) {
         const { type = "default", block, shape, disabled, children, onClick, } = props;
         return (React__default["default"].createElement("div", null,
             React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
@@ -173,35 +173,22 @@
             closeable && React__default["default"].createElement(Icon, { name: "close-circle" })));
     }
 
-    function Button$g(props) {
-        const { type = "default", block, shape, disabled, children, onClick, } = props;
-        return (React__default["default"].createElement("div", null,
-            React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
-                    'dumbo-button--block': block,
-                    'dumbo-button--circle': shape === 'circle',
-                    'dumbo-button--disabled': disabled
-                }), onClick: onClick }, children)));
-    }
-
-    function Button$f(props) {
-        const { type = "default", block, shape, disabled, children, onClick, } = props;
-        return (React__default["default"].createElement("div", null,
-            React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
-                    'dumbo-button--block': block,
-                    'dumbo-button--circle': shape === 'circle',
-                    'dumbo-button--disabled': disabled
-                }), onClick: onClick }, children)));
-    }
-
-    function Button$e(props) {
-        const { type = "default", block, shape, disabled, children, onClick, } = props;
-        return (React__default["default"].createElement("div", null,
-            React__default["default"].createElement("button", { disabled: disabled, className: classnames__default["default"]("dumbo-button", `dumbo-button--${type}`, {
-                    'dumbo-button--block': block,
-                    'dumbo-button--circle': shape === 'circle',
-                    'dumbo-button--disabled': disabled
-                }), onClick: onClick }, children)));
-    }
+    const Badge = ({ children, size, value, color, dot, max = 99 }) => {
+        if (children) {
+            return React__default["default"].createElement("div", { className: "sail-badge__wrapper" },
+                children,
+                React__default["default"].createElement("div", { className: classnames__default["default"]("sail-badge sail-badge__fixed", { "sail-badge__dot": dot }), style: { background: color } }, typeof (value) === 'number' ?
+                    value > max ?
+                        `${max}+` : value
+                    : value));
+        }
+        else {
+            return React__default["default"].createElement("div", { className: classnames__default["default"]("sail-badge", { "sail-badge__dot": dot }), style: { background: color } }, typeof (value) === 'number' ?
+                value > max ?
+                    `${max}+` : value
+                : value);
+        }
+    };
 
     function Button$d(props) {
         const { type = "default", block, shape, disabled, children, onClick, } = props;
@@ -232,6 +219,38 @@
                     'dumbo-button--disabled': disabled
                 }), onClick: onClick }, children)));
     }
+
+    const context = React.createContext({});
+    const { Provider, Consumer } = context;
+
+    class Form extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                values: {}
+            };
+        }
+        onChange = (name, value) => {
+            this.setState({ values: Object.assign({}, this.state.values, { [name]: value }) });
+        };
+        render() {
+            const { onSubmit, children } = this.props;
+            const { values } = this.state;
+            return (React__default["default"].createElement(Provider, { value: values },
+                React__default["default"].createElement("form", { className: "", onSubmit: (event) => {
+                        event.preventDefault();
+                        onSubmit(values);
+                    } }, Array.isArray(children) ? children.map((child, inx) => {
+                    return React__default["default"].cloneElement(child, { key: inx, onChange: this.onChange });
+                })
+                    :
+                        React__default["default"].cloneElement(children, { onChange: this.onChange }))));
+        }
+    }
+
+    const Input = ({ name, value, onChange }) => {
+        return React__default["default"].createElement("input", { value: value, onChange: e => { onChange(name, e.target.value); } });
+    };
 
     function Button$a(props) {
         const { type = "default", block, shape, disabled, children, onClick, } = props;
@@ -344,27 +363,27 @@
     }
 
     exports.Alert = Alert;
-    exports.Badge = Button$g;
-    exports.Button = Button$j;
-    exports.Card = Button$f;
-    exports.DatePicker = Button$e;
+    exports.Badge = Badge;
+    exports.Button = Button$g;
+    exports.Card = Button$d;
+    exports.DatePicker = Button$c;
     exports.Drawer = Drawer;
     exports.Empty = Button$2;
-    exports.Form = Button$c;
+    exports.Form = Form;
     exports.Icon = Icon;
-    exports.Input = Button$b;
-    exports.Loading = Button$i;
+    exports.Input = Input;
+    exports.Loading = Button$f;
     exports.MediaPreview = MediaPreview;
     exports.Message = Button$4;
     exports.Modal = Button$3;
     exports.Notification = Button$5;
     exports.Popver = Button$7;
     exports.Radio = Button$a;
-    exports.Skeleton = Button$h;
+    exports.Skeleton = Button$e;
     exports.Steps = Button$1;
     exports.Switch = Button$9;
     exports.Tag = Button;
-    exports.TimePicker = Button$d;
+    exports.TimePicker = Button$b;
     exports.Timeline = Button$8;
     exports.Tooltip = Button$6;
     exports.Upload = Upload;

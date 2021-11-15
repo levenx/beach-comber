@@ -1,28 +1,9 @@
 import { FunctionComponent, ComponentProps } from 'react';
-import Button from './index';
+import Alert from './index';
 declare const _default: {
-    component: typeof Button;
+    component: typeof Alert;
     title: string;
-    argTypes: {
-        block: {
-            control: {
-                type: string;
-            };
-        };
-        type: {
-            control: {
-                type: string;
-                options: string[];
-            };
-        };
-        shape: {
-            control: {
-                type: string;
-                options: string[];
-                default: string;
-            };
-        };
-    };
+    argTypes: {};
 };
 export default _default;
-export declare const Default: FunctionComponent<ComponentProps<typeof Button>>;
+export declare const Default: FunctionComponent<ComponentProps<typeof Alert>>;
