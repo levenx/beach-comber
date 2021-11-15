@@ -1,0 +1,43 @@
+.sail-divider {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  color: #969799;
+  font-size: 14px;
+  line-height: 24px;
+  border-color: #ebedf0;
+  border-style: solid;
+  border-width: 1px;
+
+  &::before {
+    display: block;
+    flex: 1;
+    box-sizing: border-box;
+    height: 1px;
+    border-color: inherit;
+    border-style: inherit;
+    border-width: 1px 0 0;
+  }
+
+  &__hairline::before {
+    transform: scaleY(0.5);
+  }
+
+  &__dashed {
+    border-style: dashed;
+  }
+
+  &__content-left::before {
+    margin-right: 16px;
+    max-width: 10%;
+  }
+
+  &__content-center::before {
+    margin-right: 16px;
+  }
+
+  &__content-right::before {
+    margin-right: 16px;
+    max-width: 10%;
+  }
+}

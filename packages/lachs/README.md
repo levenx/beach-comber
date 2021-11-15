@@ -6,12 +6,12 @@
 
 <br/>
 <div align="center">
-<h1>LanternFish</h1>
+<h2>lachs</h2>
 </div>
 
 <div align="center">
 
-灯笼鱼 - 前端监控SDK
+狗头鱼 - 前端监控SDK
 
 </div>
 
@@ -20,8 +20,3 @@
 English | [简体中文](./README.zh-CN.md)
 
 </div>
-
-# Component List
-
-- [ ] (for unchecked checkbox)g
-- [x] (for checked checkbox)

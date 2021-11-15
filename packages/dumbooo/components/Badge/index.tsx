@@ -1,31 +1,35 @@
-import React, { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import classnames from 'classnames';
 import { BaseType } from '../typing';
 import './index.less';
 
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+export interface BadgeProps extends BaseType {
+    size?: 'large' | 'small';
+    value?: string | number | ReactNode;
+    color?: string;
+    dot?: boolean;
+    max?: number;
 }
 
-export default function Button(props: IButton) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
-    return (
-        <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
+const Badge: FC<BadgeProps> = ({ children, size, value, color, dot, max = 99 }) => {
+    if (children) {
+        return <div className="sail-badge__wrapper">
+            {children}
+            <div className={classnames("sail-badge sail-badge__fixed", { "sail-badge__dot": dot })} style={{ background: color }}>
+                {typeof (value) === 'number' ?
+                    value > max ?
+                        `${max}+` : value
+                    : value}
+            </div>
         </div>
-    )
+    } else {
+        return <div className={classnames("sail-badge", { "sail-badge__dot": dot })} style={{ background: color }}>
+            {typeof (value) === 'number' ?
+                value > max ?
+                    `${max}+` : value
+                : value}
+        </div>
+    }
 }
+
+export default Badge;

@@ -1,10 +1,10 @@
 // welcome to levenx guard
 import 'animate.css';
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState, createContext, Component } from 'react';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 
-function Button$j(props) {
+function Button$g(props) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     return (React.createElement("div", null,
         React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
@@ -133,7 +133,7 @@ function MediaPreview(props) {
         })));
 }
 
-function Button$i(props) {
+function Button$f(props) {
     const { size, loading, children } = props;
     return (React.createElement(React.Fragment, null, loading ? React.createElement("div", { className: "dumbo-loading", style: { width: size, height: size } },
         React.createElement("span", null),
@@ -148,7 +148,7 @@ function Button$i(props) {
             children));
 }
 
-function Button$h(props) {
+function Button$e(props) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
     return (React.createElement("div", null,
         React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
@@ -167,35 +167,22 @@ function Alert(props) {
         closeable && React.createElement(Icon, { name: "close-circle" })));
 }
 
-function Button$g(props) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
-    return (React.createElement("div", null,
-        React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
-                'dumbo-button--block': block,
-                'dumbo-button--circle': shape === 'circle',
-                'dumbo-button--disabled': disabled
-            }), onClick: onClick }, children)));
-}
-
-function Button$f(props) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
-    return (React.createElement("div", null,
-        React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
-                'dumbo-button--block': block,
-                'dumbo-button--circle': shape === 'circle',
-                'dumbo-button--disabled': disabled
-            }), onClick: onClick }, children)));
-}
-
-function Button$e(props) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
-    return (React.createElement("div", null,
-        React.createElement("button", { disabled: disabled, className: classnames("dumbo-button", `dumbo-button--${type}`, {
-                'dumbo-button--block': block,
-                'dumbo-button--circle': shape === 'circle',
-                'dumbo-button--disabled': disabled
-            }), onClick: onClick }, children)));
-}
+const Badge = ({ children, size, value, color, dot, max = 99 }) => {
+    if (children) {
+        return React.createElement("div", { className: "sail-badge__wrapper" },
+            children,
+            React.createElement("div", { className: classnames("sail-badge sail-badge__fixed", { "sail-badge__dot": dot }), style: { background: color } }, typeof (value) === 'number' ?
+                value > max ?
+                    `${max}+` : value
+                : value));
+    }
+    else {
+        return React.createElement("div", { className: classnames("sail-badge", { "sail-badge__dot": dot }), style: { background: color } }, typeof (value) === 'number' ?
+            value > max ?
+                `${max}+` : value
+            : value);
+    }
+};
 
 function Button$d(props) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
@@ -226,6 +213,38 @@ function Button$b(props) {
                 'dumbo-button--disabled': disabled
             }), onClick: onClick }, children)));
 }
+
+const context = createContext({});
+const { Provider, Consumer } = context;
+
+class Form extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            values: {}
+        };
+    }
+    onChange = (name, value) => {
+        this.setState({ values: Object.assign({}, this.state.values, { [name]: value }) });
+    };
+    render() {
+        const { onSubmit, children } = this.props;
+        const { values } = this.state;
+        return (React.createElement(Provider, { value: values },
+            React.createElement("form", { className: "", onSubmit: (event) => {
+                    event.preventDefault();
+                    onSubmit(values);
+                } }, Array.isArray(children) ? children.map((child, inx) => {
+                return React.cloneElement(child, { key: inx, onChange: this.onChange });
+            })
+                :
+                    React.cloneElement(children, { onChange: this.onChange }))));
+    }
+}
+
+const Input = ({ name, value, onChange }) => {
+    return React.createElement("input", { value: value, onChange: e => { onChange(name, e.target.value); } });
+};
 
 function Button$a(props) {
     const { type = "default", block, shape, disabled, children, onClick, } = props;
@@ -337,5 +356,5 @@ function Button(props) {
             }), onClick: onClick }, children)));
 }
 
-export { Alert, Button$g as Badge, Button$j as Button, Button$f as Card, Button$e as DatePicker, Drawer, Button$2 as Empty, Button$c as Form, Icon, Button$b as Input, Button$i as Loading, MediaPreview, Button$4 as Message, Button$3 as Modal, Button$5 as Notification, Button$7 as Popver, Button$a as Radio, Button$h as Skeleton, Button$1 as Steps, Button$9 as Switch, Button as Tag, Button$d as TimePicker, Button$8 as Timeline, Button$6 as Tooltip, Upload };
+export { Alert, Badge, Button$g as Button, Button$d as Card, Button$c as DatePicker, Drawer, Button$2 as Empty, Form, Icon, Input, Button$f as Loading, MediaPreview, Button$4 as Message, Button$3 as Modal, Button$5 as Notification, Button$7 as Popver, Button$a as Radio, Button$e as Skeleton, Button$1 as Steps, Button$9 as Switch, Button as Tag, Button$b as TimePicker, Button$8 as Timeline, Button$6 as Tooltip, Upload };
 //# sourceMappingURL=dumbooo.js.map

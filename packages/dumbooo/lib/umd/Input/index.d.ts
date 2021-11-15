@@ -1,12 +1,10 @@
-/// <reference types="react" />
+import { FC } from 'react';
 import { BaseType } from '../typing';
 import './index.less';
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+export interface InputProps extends BaseType {
+    onChange?: (name: any, value: any) => void;
+    name?: string;
+    value?: any;
 }
-export default function Button(props: IButton): JSX.Element;
+declare const Input: FC<InputProps>;
+export default Input;
