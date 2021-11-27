@@ -1,4 +1,4 @@
-import { FC, Component, ReactNode } from 'react';
+import React, { FC, Component, ReactNode } from 'react';
 import { BaseType } from '../typing';
 import './index.less';
 interface FormItemProps {
@@ -23,6 +23,7 @@ interface FormState {
     name?: string;
 }
 export default class Form extends Component<FormProps, FormState> {
+    static Item: React.FC<FormItemProps>;
     constructor(props: FormProps);
     onChange: (name: string, value: any) => void;
     render(): JSX.Element;

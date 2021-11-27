@@ -13,13 +13,16 @@
   "scripts": {
     "dev": "concurrently \"npm run storybook\" \"npm run compile\"",
     "compile": "rollup -c rollup.config.js -w",
-    "build": "rollup -c rollup.config.js",
+    "build": "NODE_ENV=prod rollup -c rollup.config.js",
+    "prepublish": "npm run build",
     "story": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "story:build": "build-storybook -s public"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/cli": "^6.3.12",

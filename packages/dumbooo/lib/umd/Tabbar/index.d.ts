@@ -1,4 +1,4 @@
-import React, { Component, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import Icon from '../icon/index';
 import './index.less';
 interface TabBarItemProps {
@@ -13,8 +13,7 @@ interface TabBarProps {
     children: Array<any>;
     fixed?: boolean;
 }
-export default class TabBar extends Component<TabBarProps, any> {
-    static Item: React.FC<TabBarItemProps>;
-    render(): JSX.Element;
-}
-export {};
+declare const TabBar: FC<TabBarProps> & {
+    Item: FC<TabBarItemProps>;
+};
+export default TabBar;

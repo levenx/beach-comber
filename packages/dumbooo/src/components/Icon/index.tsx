@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import classnames from 'classnames';
 import { BaseType } from '../typing';
-import '../style/font.css';
+import '../../styles/font.css';
 import './index.less';
 
 export interface IconProps extends BaseType {

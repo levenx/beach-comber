@@ -13,6 +13,11 @@ interface TabBarItemProps {
     onClick?: () => void;
 }
 
+interface TabBarProps {
+    children: Array<any>;
+    fixed?: boolean;
+}
+
 const Item: FC<TabBarItemProps> = ({ icon, title, onClick }) => {
     return <div className="sail-tabbar-item" onClick={onClick}>
         <div className="sail-tabbar-item-icon">
@@ -24,19 +29,15 @@ const Item: FC<TabBarItemProps> = ({ icon, title, onClick }) => {
     </div>
 }
 
-interface TabBarProps {
-    children: Array<any>;
-    fixed?: boolean;
+const TabBar: FC<TabBarProps> & { Item: FC<TabBarItemProps> } = (props) => {
+    const { children, fixed } = props;
+    return (
+        <div className={classnames("sail-tabbar", { "sail-tabbar-fixed": fixed })}>
+            {children}
+        </div>
+    )
 }
 
-export default class TabBar extends Component<TabBarProps, any> {
-    static Item = Item;
-    render() {
-        const { children, fixed } = this.props;
-        return (
-            <div className={classnames("sail-tabbar", { "sail-tabbar-fixed": fixed })}>
-                {children}
-            </div>
-        )
-    }
-}
+TabBar.Item = Item;
+
+export default TabBar;

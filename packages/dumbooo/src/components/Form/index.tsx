@@ -46,7 +46,7 @@ interface FormState {
 
 export default class Form extends Component<FormProps, FormState> {
 
-    // static Item = FormItem;
+    static Item = FormItem;
 
     constructor(props: FormProps) {
         super(props);
