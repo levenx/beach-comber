@@ -5,6 +5,12 @@ import './index.less';
 export interface GridItemProps extends BaseType {
 }
 
+
+interface GridProps extends BaseType {
+    children?: Array<any>;
+}
+
+
 const Item: FC<GridItemProps> = ({ children }) => {
     return <div className="sail-grid-item" style={{ flexBasis: '33.3333%' }}>
         <div className="sail-grid-item__content sail-grid-item__content--center sail-grid-item__content--square sail-hairline">
@@ -13,21 +19,15 @@ const Item: FC<GridItemProps> = ({ children }) => {
     </div>
 }
 
-
-interface GridProps extends BaseType {
-    children?: Array<any>;
+const Grid: FC<GridProps> & { Item: FC<GridItemProps> } = (props) => {
+    const { children } = props;
+    return (
+        <div className="sail-grid sail-hairline__top">
+            {children}
+        </div>
+    )
 }
 
-export default class Grid extends Component<GridProps, any> {
+Grid.Item = Item;
 
-    static Item = Item;
-
-    render() {
-        const { children } = this.props;
-        return (
-            <div className="sail-grid sail-hairline__top">
-                {children}
-            </div>
-        )
-    }
-}
+export default Grid;

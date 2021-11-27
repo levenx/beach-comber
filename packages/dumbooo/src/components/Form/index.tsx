@@ -1,4 +1,4 @@
-import React, { FC, Component, ReactNode, useContext, ReactElement } from 'react';
+import React, { FC, Component, ReactNode, useContext, useState } from 'react';
 import { Provider, context } from './context';
 import { BaseType } from '../typing';
 import './index.less';
@@ -11,6 +11,13 @@ interface FormItemProps {
     trigger?: any;
     children?: any;
     onChange?: (name: string, value) => void;
+}
+
+export interface FormProps extends BaseType {
+    initialValues?: Object;
+    onValuesChange?: () => void;
+    onSubmit?: (values) => void;
+    children: typeof FormItem[] | typeof FormItem | any;
 }
 
 const FormItem: FC<FormItemProps> = ({ label, name, value, rules, trigger, children, onChange }) => {
@@ -28,55 +35,31 @@ const FormItem: FC<FormItemProps> = ({ label, name, value, rules, trigger, child
     </div>
 }
 
-export { FormItem };
+const Form: FC<FormProps> & { Item: FC<FormItemProps> } = (props) => {
+    const { onSubmit, children } = props;
+    const [values, setValues] = useState({});
 
-
-export interface FormProps extends BaseType {
-    initialValues?: Object;
-    onValuesChange?: () => void;
-    onSubmit?: (values) => void;
-    children: typeof FormItem[] | typeof FormItem | any;
+    const onChange = (name: string, value) => {
+        setValues({ ...values, [name]: value })
+    }
+    return (
+        <Provider value={values}>
+            <form className="" onSubmit={(event) => {
+                event.preventDefault();
+                onSubmit(values)
+            }}>
+                {
+                    Array.isArray(children) ? children.map((child, inx) => {
+                        return React.cloneElement(child, { key: inx, onChange })
+                    })
+                        :
+                        React.cloneElement(children, { onChange })
+                }
+            </form>
+        </Provider>
+    )
 }
 
-interface FormState {
-    values: Object;
-    name?: string;
-}
+Form.Item = FormItem;
 
-
-export default class Form extends Component<FormProps, FormState> {
-
-    static Item = FormItem;
-
-    constructor(props: FormProps) {
-        super(props);
-        this.state = {
-            values: {}
-        }
-    }
-
-    onChange = (name: string, value) => {
-        this.setState({ values: Object.assign({}, this.state.values, { [name]: value }) })
-    }
-
-    render() {
-        const { onSubmit, children } = this.props;
-        const { values } = this.state;
-        return (
-            <Provider value={values}>
-                <form className="" onSubmit={(event) => {
-                    event.preventDefault();
-                    onSubmit(values)
-                }}>
-                    {
-                        Array.isArray(children) ? children.map((child, inx) => {
-                            return React.cloneElement(child, { key: inx, onChange: this.onChange })
-                        })
-                            :
-                            React.cloneElement(children, { onChange: this.onChange })
-                    }
-                </form>
-            </Provider>
-        )
-    }
-}
+export default Form;

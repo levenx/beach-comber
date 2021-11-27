@@ -1,31 +1,49 @@
-import React, { ReactNode } from 'react';
+import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import { BaseType } from '../typing';
 import './index.less';
 
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+export interface ModalProps extends BaseType {
+    visible: boolean;
+    title: string;
+    content: string;
+    onClose?: () => void;
 }
 
-export default function Button(props: IButton) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
+interface IAlert {
+    title: string;
+    content: string;
+}
+
+function Modal(props: ModalProps) {
+    const { title, content, visible, onClose } = props;
     return (
-        <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
+        <div className={classnames("dumbo-modal", { "dumbo-modal--visible": visible })}>
+            <div className="dumbo-modal__mask"></div>
+            <div className="dumbo-modal__body">
+                <div onClick={onClose}>关闭</div>
+                <div className="dumbo-modal__body-title">{title}</div>
+                <div className="dumbo-modal__body-content">{content}</div>
+            </div>
         </div>
     )
 }
+
+Modal.alert = alert;
+
+let rootId = 1;
+function alert({ title, content }: IAlert) {
+    const root = document.createElement("div");
+    root.setAttribute('id', `dialog-${rootId}`);
+    document.body.appendChild(root);
+
+    const onClose = () => {
+        document.body.removeChild(root);
+    }
+
+    ReactDOM.render(<Modal visible={true} title={title} content={content} onClose={onClose} />, root);
+    return rootId;
+}
+
+export default Modal;

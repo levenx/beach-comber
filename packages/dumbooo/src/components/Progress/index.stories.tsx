@@ -4,7 +4,7 @@ import Progress from './index';
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
     component: Progress,
-    title: 'Progress',
+    title: 'Progress「进度条」',
     argTypes: {
         percent: {
             control: {

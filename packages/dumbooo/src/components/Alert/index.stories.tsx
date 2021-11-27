@@ -4,7 +4,7 @@ import Alert from './index';
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
     component: Alert,
-    title: 'Alert',
+    title: 'Alert「告示」',
     argTypes: {
 
     }

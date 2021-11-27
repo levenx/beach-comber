@@ -4,7 +4,7 @@ import Upload from './index';
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
     component: Upload,
-    title: 'Upload',
+    title: 'Upload 「上传」',
     argTypes: {
         block: {
             control: {

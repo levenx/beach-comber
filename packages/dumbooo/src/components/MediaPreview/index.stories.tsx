@@ -4,7 +4,7 @@ import MediaPreview from './index';
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
     component: MediaPreview,
-    title: 'MediaPreview',
+    title: 'MediaPreview「预览器」',
     argTypes: {
 
     }

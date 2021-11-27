@@ -14,7 +14,7 @@ export const Default: FunctionComponent<ComponentProps<typeof Avatar>> = ({ ...p
     console.log('--->', props)
     const src = 'https://joeschmoe.io/api/v1/random';
     return <div>
-        <Avatar {...props} src={src} size={200}>
+        <Avatar {...props} src={src} size={100}>
             测试
         </Avatar>
     </div>

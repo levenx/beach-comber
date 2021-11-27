@@ -1,10 +1,10 @@
 import React, { FunctionComponent, ComponentProps } from 'react';
-import Button from './index';
+import Modal from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
-    component: Button,
-    title: 'Button',
+    component: Modal,
+    title: 'Modal「弹窗」',
     argTypes: {
         block: {
             control: {
@@ -27,11 +27,20 @@ export default {
     }
 };
 
-export const Default: FunctionComponent<ComponentProps<typeof Button>> = ({ ...props }) => {
+export const Default: FunctionComponent<ComponentProps<typeof Modal>> = ({ ...props }) => {
     console.log('--->', props)
     return <div>
-        <Button onClick={() => { console.log('click!!') }} {...props}>
+        <Modal onClick={() => { console.log('click!!') }} {...props}>
             测试
-        </Button>
+        </Modal>
+    </div>
+}
+
+export const Initiative: FunctionComponent<ComponentProps<typeof Modal>> = ({ ...props }) => {
+    console.log('--->', props)
+    return <div>
+        <button onClick={() => {
+            Modal.alert({ title: '标题', content: '内容' })
+        }}>打开</button>
     </div>
 }

@@ -11,9 +11,12 @@ export default {
 };
 
 export const Default: FunctionComponent<ComponentProps<typeof Badge>> = ({ ...props }) => {
-    console.log('--->', props)
     return <div>
         <Badge onClick={() => { console.log('click!!') }} {...props} dot={true}>
+            <div>测试</div>
+        </Badge>
+
+        <Badge onClick={() => { console.log('click!!') }} value={66}  {...props} dot={true}>
             <div>测试</div>
         </Badge>
     </div>
