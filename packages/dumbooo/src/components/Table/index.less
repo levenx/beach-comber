@@ -1,10 +1,16 @@
-.dumbo-table {
+.dumbo-table-content table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 2px;
 }
 
-th,
+.dumbo-table-thead tr {
+  background: #fafafa;
+  th {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
 td {
   border-bottom: 1px solid #ddd;
   padding: 15px;
