@@ -1,0 +1,43 @@
+.dumbo-progress {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+
+  &--percent {
+    position: relative;
+    height: 10px;
+    background-color: #1890ff;
+    background-image: linear-gradient(to right, #108ee9 0%, #87d068 100%);
+    transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+    border-radius: 10px;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      border-radius: 10px;
+      opacity: 0.3;
+      animation: loading-active 2.4s infinite
+        cubic-bezier(0.68, 0.17, 0.79, 0.81);
+      content: '';
+    }
+  }
+}
+
+@keyframes loading-active {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  60% {
+    transform: translateX(-20%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

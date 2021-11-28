@@ -1,0 +1,76 @@
+.dumbo-button {
+  background: #e1e1e1;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0px 20px;
+  height: 36 px;
+  line-height: 34px;
+  min-width: 24 px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  display: inline-block;
+  outline: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 14px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 11%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(12, 12);
+    opacity: 0;
+    transition: transform 0.6s, opacity 0.6s;
+  }
+
+  &:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    //设置初始状态
+    transition: 0s;
+  }
+}
+
+.dumbo-button--default {
+  background: #fff;
+  border: 1px solid #ebedf0;
+  color: #323333;
+
+  &::after {
+    background-image: radial-gradient(circle, #ccc 10%, transparent 11%);
+  }
+}
+
+.dumbo-button--primary {
+  background: #3a61ee;
+}
+
+.dumbo-button--danger {
+  background: #e44444;
+}
+
+.dumbo-button--circle {
+  border-radius: 20px;
+}
+
+.dumbo-button--disabled {
+  filter: opacity(0.5);
+  cursor: not-allowed;
+}
+
+.dumbo-button--block {
+  width: 100%;
+}

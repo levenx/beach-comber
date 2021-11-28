@@ -1,0 +1,41 @@
+.dumbo-media--preview {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  padding: 10%;
+  user-select: none;
+  transform: scale(0);
+  transition: all 200ms;
+
+  .media-preview--operate {
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    padding: 0 24px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .media-preview--icon {
+    cursor: pointer;
+  }
+
+  img {
+    max-height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.preview {
+  transform: scale(1);
+}

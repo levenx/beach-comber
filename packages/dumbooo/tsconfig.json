@@ -10,7 +10,7 @@
         "module": "ES2015", // 指定生成哪个模块系统代码
         "noImplicitAny": false, // 是否默认禁用 any
         "removeComments": true, // 是否移除注释
-        "target": "ESNext", // 编译的目标是什么版本的
+        "target": "es5", // 编译的目标是什么版本的
         "outDir": "./lib", // 输出目录
         "declaration": true, // 是否自动创建类型声明文件
         "declarationDir": "./ts/lib", // 类型声明文件的输出目录
@@ -28,17 +28,16 @@
         "baseUrl": ".", // 工作根目录
         "paths": {
             "component/*": [
-                "components/*"
+                "src/components/*"
             ]
         }
     },
     // 指定一个匹配列表（属于自动指定该路径下的所有ts相关文件）
     "include": [
-        "components/**/*"
+        "src/components/**/*"
     ],
     // 指定一个排除列表（include的反向操作）
     "exclude": [
         "node_modules",
-        "dist"
     ]
 }

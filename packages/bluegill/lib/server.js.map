@@ -1,0 +1,1 @@
+{"version":3,"file":"server.js","sources":["../src/server/index.ts"],"sourcesContent":["function Bluegill() {\n    console.log('Bluegill')\n}\n\nexport default Bluegill;"],"names":[],"mappings":";;;AAAA,SAAS,QAAQ;IACb,OAAO,CAAC,GAAG,CAAC,UAAU,CAAC,CAAA;AAC3B;;;;"}

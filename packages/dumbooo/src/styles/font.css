@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2904070 */
+  src: url('//at.alicdn.com/t/font_2904070_2mgot6e8jd1.woff2?t=1636348751943') format('woff2'),
+       url('//at.alicdn.com/t/font_2904070_2mgot6e8jd1.woff?t=1636348751943') format('woff'),
+       url('//at.alicdn.com/t/font_2904070_2mgot6e8jd1.ttf?t=1636348751943') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dumbo-picture:before {
+  content: "\e606";
+}
+
+.icon-dumbo-camera:before {
+  content: "\e612";
+}
+
+.icon-dumbo-right-fill:before {
+  content: "\e8bd";
+}
+
+.icon-dumbo-copy:before {
+  content: "\e63d";
+}
+
+.icon-dumbo-close-circle:before {
+  content: "\e6a7";
+}
+
+.icon-dumbo-download-circle:before {
+  content: "\e694";
+}
+
+.icon-video:before {
+  content: "\e639";
+}
+
+.icon-dumbo-bullist:before {
+  content: "\e67e";
+}
+
+.icon-dumbo-numlist:before {
+  content: "\e67f";
+}
+
+.icon-dumbo-decrease-circle:before {
+  content: "\e62a";
+}
+
+.icon-browser:before {
+  content: "\e698";
+}
+
+.icon-dumbo-star:before {
+  content: "\e8bb";
+}
+
+.icon-music:before {
+  content: "\e8c0";
+}
+
+.icon-dumbo-plus-circle:before {
+  content: "\e8c2";
+}
+
+.icon-dumbo-star-fill:before {
+  content: "\e8c7";
+}
+
+.icon-preview:before {
+  content: "\e626";
+}
+
+.icon-dumbo-decrease:before {
+  content: "\e600";
+}
+
+.icon-dumbo-jam:before {
+  content: "\e601";
+}
+
+.icon-dumbo-plus:before {
+  content: "\e6ea";
+}
+
+.icon-dumbo-bin:before {
+  content: "\e8b6";
+}
+
+.icon-aixin:before {
+  content: "\e8ab";
+}
+
+.icon-bianji:before {
+  content: "\e8ac";
+}
+
+.icon-bangzhu:before {
+  content: "\e8ad";
+}
+
+.icon-buganxingqu:before {
+  content: "\e8ae";
+}
+
+.icon-fenxiang:before {
+  content: "\e8b0";
+}
+
+.icon-jianshao:before {
+  content: "\e8b1";
+}
+
+.icon-shouji:before {
+  content: "\e8b9";
+}
+
+.icon-taolunqu:before {
+  content: "\e8ba";
+}
+
+.icon-dumbo-wifi:before {
+  content: "\e8c1";
+}

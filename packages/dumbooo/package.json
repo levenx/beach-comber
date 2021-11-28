@@ -1,6 +1,6 @@
 {
   "name": "dumbooo",
-  "version": "0.0.12-alpha.0",
+  "version": "0.0.27-alpha.0",
   "description": "小飞象 UI",
   "main": "./lib/umd/dumbooo.js",
   "module": "./lib/esm/dumbooo.js",
@@ -9,16 +9,20 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "6975f0bcb23c9e3b1ea5b51098eeac2cc563ab9f",
+  "gitHead": "3671c97de8cbe3436be6c832221d6ed66af120e5",
   "scripts": {
-    "dev": "rollup -c rollup.config.js -w",
-    "build": "",
+    "dev": "concurrently \"npm run storybook\" \"npm run compile\"",
+    "compile": "rollup -c rollup.config.js -w",
+    "build": "NODE_ENV=prod rollup -c rollup.config.js",
+    "prepublish": "npm run build",
     "story": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "story:build": "build-storybook -s public"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/cli": "^6.3.12",
@@ -28,6 +32,7 @@
     "@types/react-dom": "^17.0.10",
     "@types/react-transition-group": "^4.4.4",
     "babel-loader": "^8.2.3",
+    "concurrently": "^6.3.0",
     "css-loader": "0.28.7",
     "less": "^3.0.0-alpha.3",
     "less-loader": "^4.0.5",
@@ -48,5 +53,9 @@
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "react-transition-group": "^4.4.2"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   }
 }
