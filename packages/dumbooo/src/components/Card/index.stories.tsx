@@ -1,37 +1,19 @@
 import React, { FunctionComponent, ComponentProps } from 'react';
-import Button from './index';
+import Card from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
-    component: Button,
-    title: 'Button',
+    component: Card,
+    title: 'Card「卡片」',
     argTypes: {
-        block: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        type: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'primary', 'danger', 'dashed', 'text', 'link']
-            }
-        },
-        shape: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'circle', 'round'],
-                default: 'default'
-            }
-        },
     }
 };
 
-export const Default: FunctionComponent<ComponentProps<typeof Button>> = ({ ...props }) => {
+export const Default: FunctionComponent<ComponentProps<typeof Card>> = ({ ...props }) => {
     console.log('--->', props)
     return <div>
-        <Button onClick={() => { console.log('click!!') }} {...props}>
+        <Card onClick={() => { console.log('click!!') }} {...props}>
             测试
-        </Button>
+        </Card>
     </div>
 }

@@ -13,7 +13,7 @@ export interface IButton extends BaseType {
 }
 
 export default function Button(props: IButton) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
+    const { type = "primary", block, shape, disabled, children, onClick, } = props;
     return (
         <div>
             <button

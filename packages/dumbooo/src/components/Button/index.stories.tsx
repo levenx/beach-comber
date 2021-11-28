@@ -4,13 +4,8 @@ import Button from './index';
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
     component: Button,
-    title: 'Button',
+    title: 'Button「按钮」',
     argTypes: {
-        block: {
-            control: {
-                type: 'boolean',
-            },
-        },
         type: {
             control: {
                 type: 'inline-radio',

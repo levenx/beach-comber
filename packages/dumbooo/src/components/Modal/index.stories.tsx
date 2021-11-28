@@ -6,24 +6,7 @@ export default {
     component: Modal,
     title: 'Modal「弹窗」',
     argTypes: {
-        block: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        type: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'primary', 'danger', 'dashed', 'text', 'link']
-            }
-        },
-        shape: {
-            control: {
-                type: 'inline-radio',
-                options: ['default', 'circle', 'round'],
-                default: 'default'
-            }
-        },
+
     }
 };
 
