@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ComponentProps } from 'react';
+import React, { FunctionComponent, ComponentProps, useState } from 'react';
 import Table from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
@@ -8,13 +8,13 @@ export default {
 };
 
 export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...props }) => {
-    console.log('--->', props)
+    const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const columns = [
         {
           title: 'Name',
           dataIndex: 'name',
           key: 'name',
-          render: text => <a>{text}</a>,
+          render: name => <span style={{color: "red"}}>{name}</span>,
         },
         {
           title: 'Age',
@@ -60,21 +60,21 @@ export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...pr
 
         const data = [
             {
-              key: '1',
+              key: 0,
               name: 'John Brown',
               age: 32,
               address: 'New York No. 1 Lake Park',
               tags: ['nice', 'developer'],
             },
             {
-              key: '2',
+              key: 1,
               name: 'Jim Green',
               age: 42,
               address: 'London No. 1 Lake Park',
               tags: ['loser'],
             },
             {
-              key: '3',
+              key: 2,
               name: 'Joe Black',
               age: 32,
               address: 'Sidney No. 1 Lake Park',
@@ -82,7 +82,17 @@ export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...pr
             },
           ];
 
+          const onSelectChange = (selectedRowKeys) => {
+            console.log('selectedRowKeys changed: ', selectedRowKeys);
+            setSelectedRowKeys(selectedRowKeys)
+          };
+
+          const rowSelection = {
+            selectedRowKeys: selectedRowKeys,
+            onChange: onSelectChange
+          };
+
     return <div>
-        <Table dataSource={data} columns={columns} rowKey="key" />
+        <Table dataSource={data} columns={columns} rowSelection={rowSelection} {...props}/>
     </div>
 }

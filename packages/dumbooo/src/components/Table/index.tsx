@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import { BaseType } from '../typing';
 import './index.less';
@@ -15,7 +15,7 @@ export interface ITable {
     rowClassName?: string;
     columns: any;
     dataSource: any[];
-    rowKey: string | Function;
+    rowKey?: string | Function;
     loading?: boolean;
     rowSelection?: object;
     scroll?: object;
@@ -23,21 +23,46 @@ export interface ITable {
 }
 
 export default function Table(props: ITable) {
-    const { showHeader = true, bordered = true, dataSource, rowKey, columns } = props;
-    console.log(columns, dataSource)
+    const { showHeader = true, bordered = false, rowClassName, dataSource, rowKey, columns, rowSelection } = props;
+    let selectedRowKeys = [];
+    let onChange = null;
+    if (rowSelection?.selectedRowKeys) {
+        selectedRowKeys = rowSelection?.selectedRowKeys;
+        onChange = rowSelection?.onChange;
+    }
     return (
         <div className="dumbo-table-content">
-            <table className="dumbo-table">
+            <table className="dumbo-table" style={{ border: bordered && '1px solid #ddd' }}>
                 {showHeader && <thead className="dumbo-table-thead">
                     <tr>
+                        <td>
+                            <input type="checkbox" onClick={(e) => {
+                                if (e.target.checked) {
+                                    onChange?.(dataSource)
+                                } else {
+                                    onChange?.([])
+                                };
+                            }} />
+                        </td>
                         {columns.map((item) => <th className="dumbo-table-cell">{item.title}</th>)}
                     </tr>
                 </thead>}
                 <tbody className="dumbo-table-tbody">
-                    {dataSource.map((rowitem: any) => {
+                    {dataSource.map((rowItem: any, inx) => {
+                        const isSelected = selectedRowKeys?.some((item) => item.key === inx);
                         return (
-                            <tr>
-                                {columns.map((item: any) => (<td key={item.dataIndex} className="dumbo-table-cell">{item.render?.(rowitem[item.key], rowitem) || rowitem[item.key]}</td>))}
+                            <tr className={rowClassName} key={typeof rowKey === 'string' ? rowKey : rowKey?.()} style={{ background: isSelected && '#e6f7ff' }} >
+                                <td>
+                                    <input type="checkbox" checked={isSelected} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                        if (e.target.checked) {
+                                            selectedRowKeys?.push(rowItem)
+                                            onChange?.([...selectedRowKeys])
+                                        } else {
+                                            onChange?.(selectedRowKeys.filter((item) => item.key !== inx))
+                                        };
+                                    }} />
+                                </td>
+                                {columns.map((item: any) => (<td key={item.dataIndex} className="dumbo-table-cell">{item.render?.(rowItem[item.key], rowItem) || rowItem[item.key]}</td>))}
                             </tr>
                         )
                     })}
