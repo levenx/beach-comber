@@ -1,2 +1,11 @@
-src
+.storybook
 package-lock.json
+rollup.config.js
+tsconfig.json
+yarn-error.log
+yarn.lock
+node_modules
+src
+.babelrc
+.gitignore
+tsconfig.json
