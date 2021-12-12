@@ -3,29 +3,21 @@ import classnames from 'classnames';
 import { BaseType } from '../typing';
 import './index.less';
 
-export interface IButton extends BaseType {
-    block?: boolean;
-    size?: 'large' | 'middle' | 'small';
-    type?: 'default' | 'primary' | 'danger' | 'dashed' | 'text' | 'link';
-    shape?: 'default' | 'circle' | 'round';
-    loading?: boolean;
-    disabled?: boolean;
+export interface IPagination extends BaseType {
+    current?: number;
+    defaultCurrent?: number;
+    defaultPageSize?: number;
+    total: number
 }
 
-export default function Button(props: IButton) {
-    const { type = "default", block, shape, disabled, children, onClick, } = props;
+export default function Pagination(props: IPagination) {
+    const { defaultCurrent = 1, defaultPageSize = 10, total } = props;
+    const pageNumber = total / defaultPageSize;
     return (
         <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
+            <ul>
+                
+            </ul>
         </div>
     )
 }
