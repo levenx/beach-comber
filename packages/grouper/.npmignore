@@ -1,5 +1,4 @@
 .storybook
-package-lock.json
 rollup.config.js
 tsconfig.json
 yarn-error.log
