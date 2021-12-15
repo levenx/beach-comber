@@ -1,6 +1,6 @@
 {
   "name": "coral",
-  "version": "1.0.3-alpha.0",
+  "version": "1.0.4-alpha.0",
   "description": "",
   "main": "rollup.config.js",
   "scripts": {
