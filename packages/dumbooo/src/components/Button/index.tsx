@@ -13,19 +13,17 @@ export interface IButton extends BaseType {
 }
 
 export default function Button(props: IButton) {
-    const { type = "primary", block, shape, disabled, children, onClick, } = props;
+    const { type = "primary", block, shape, disabled, children, onClick, className = '' } = props;
     return (
-        <div>
-            <button
-                disabled={disabled}
-                className={classnames("dumbo-button", `dumbo-button--${type}`,
-                    {
-                        'dumbo-button--block': block,
-                        'dumbo-button--circle': shape === 'circle',
-                        'dumbo-button--disabled': disabled
-                    })} onClick={onClick}>
-                {children}
-            </button>
-        </div>
+        <button
+            disabled={disabled}
+            className={classnames("dumbo-button", `dumbo-button--${type} ${className}`,
+                {
+                    'dumbo-button--block': block,
+                    'dumbo-button--circle': shape === 'circle',
+                    'dumbo-button--disabled': disabled
+                })} onClick={onClick}>
+            {children}
+        </button>
     )
 }

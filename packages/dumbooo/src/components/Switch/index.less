@@ -1,0 +1,40 @@
+.dumbo-switch {
+  height: 22px;
+  width: 44px;
+  border-radius: 100px;
+  background: #1890ff;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    background: #ffffff;
+    content: '';
+    box-sizing: border-box;
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    box-shadow: 0 2px 4px #00230b33;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.dumbo-switch--default {
+  opacity: 0.4;
+  &::after {
+    left: 2px;
+  }
+}
+
+.dumbo-switch--checked {
+  opacity: 1;
+  cursor: pointer;
+  &::after {
+    left: calc(100% - 20px);
+  }
+}
+
+.dumbo-switch--disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
