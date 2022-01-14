@@ -1,6 +1,6 @@
 {
   "name": "dumbooo",
-  "version": "0.0.31-alpha.0",
+  "version": "0.0.32-alpha.0",
   "description": "小飞象 UI",
   "main": "./lib/umd/dumbooo.js",
   "module": "./lib/esm/dumbooo.js",
@@ -25,9 +25,9 @@
     "@babel/preset-env": "^7.16.4",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
+    "@storybook/addon-options": "^5.3.21",
     "@storybook/cli": "^6.3.12",
     "@storybook/react": "^6.3.12",
-    "@storybook/addon-options": "^5.3.21",
     "@types/classnames": "^2.3.1",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
