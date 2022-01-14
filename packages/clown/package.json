@@ -1,10 +1,10 @@
 {
   "name": "@ocean/clown",
-  "version": "0.0.4-alpha.0",
+  "version": "0.0.5-alpha.0",
   "description": "",
   "main": "./lib/umd/index.js",
   "module": "./lib/esm/index.js",
-  "private":true,
+  "private": true,
   "scripts": {
     "build": "rollup -c rollup.config.js"
   },
