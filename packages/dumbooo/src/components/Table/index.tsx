@@ -13,7 +13,16 @@ interface scrollType {
     x?: string | number | true;
     y?: string | number | true;
 }
-export interface ITable {
+
+export interface TableColumnProps<Item> {
+    key: any;
+    dataIndex: keyof Item;
+    title?: string;
+    width?: number;
+    render?: (value: Item[keyof Item], item: Item) => ReactNode;
+}
+
+export interface TableProps<Data> {
     /**
      * 是否展示外边框和列边框
      * @default true
@@ -23,8 +32,8 @@ export interface ITable {
      * 自定义行类名
      */
     rowClassName?: string;
-    columns: any[];
-    dataSource: any[];
+    columns: Array<TableColumnProps<Data>>;
+    dataSource: Data[];
     /**
      * 行key
      */
@@ -46,7 +55,7 @@ export interface ITable {
     showHeader?: boolean;
 }
 
-export default function Table(props: ITable) {
+export default function Table<T>(props: TableProps<T>) {
     const { showHeader = true, bordered = false, rowClassName, dataSource = [], rowKey, columns = [], rowSelection, scroll } = props;
     const { selectedRowKeys, onChange } = rowSelection || {};
     const isScroll = scroll?.x || scroll?.y;
@@ -55,7 +64,7 @@ export default function Table(props: ITable) {
         <div className="dumbo-table-content">
             <div className="dumbo-table-header">
                 <table className="dumbo-table-header" style={{ border: bordered && '1px solid #ddd' }}>
-                <colgroup>
+                    <colgroup>
                         {colList.map((item) => {
                             return <col style={{ width: `${item.width}px` }}></col>
                         })}
@@ -71,7 +80,7 @@ export default function Table(props: ITable) {
                                     };
                                 }} />
                             </td>}
-                            {columns.map((item) => <th className="dumbo-table-cell" key={item.dataIndex} >{item.title}</th>)}
+                            {columns.map((item) => <th className="dumbo-table-cell" key={item.key} >{item.title}</th>)}
                         </tr>
                     </thead>}
                 </table>
@@ -84,7 +93,7 @@ export default function Table(props: ITable) {
                         })}
                     </colgroup>
                     <tbody className="dumbo-table-tbody">
-                        {dataSource.map((rowItem: any, inx) => {
+                        {dataSource.map((rowItem, inx) => {
                             const isSelected = selectedRowKeys?.some((item) => item.key === inx);
                             return (
                                 <tr className={rowClassName} key={typeof rowKey === 'string' ? rowKey : rowKey?.()} style={{ background: isSelected && '#e6f7ff' }} >
@@ -98,7 +107,7 @@ export default function Table(props: ITable) {
                                             };
                                         }} />
                                     </td>}
-                                    {columns.map((item: any) => (<td key={item.dataIndex} className="dumbo-table-cell">{item.render?.(rowItem[item.key], rowItem) || rowItem[item.key]}</td>))}
+                                    {columns.map((item) => (<td key={item.key} className="dumbo-table-cell">{item.render?.(rowItem[item.key], rowItem) || rowItem[item.key]}</td>))}
                                 </tr>
                             )
                         })}

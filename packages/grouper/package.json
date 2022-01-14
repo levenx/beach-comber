@@ -31,5 +31,6 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "marked": "^4.0.7"
-  }
+  },
+  "gitHead": "e00b2b74d2a1f903a08942be57f3da5015a2a0a3"
 }

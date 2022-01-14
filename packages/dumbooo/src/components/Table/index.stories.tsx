@@ -1,15 +1,23 @@
 import React, { FunctionComponent, ComponentProps, useState } from 'react';
-import Table from './index';
+import Table, { TableColumnProps } from './index';
 
 // control参考文档： https://xiday.com/2020/09/27/storybook/
 export default {
   component: Table,
-  title: 'Table'
+  title: 'Table「表格」'
 };
+
+export interface Data {
+  key: number;
+  name: string;
+  age: number;
+  address: string;
+  tags: string[]
+}
 
 export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...props }) => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const columns = [
+  const columns: TableColumnProps<Data>[] = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -50,8 +58,9 @@ export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...pr
       ),
     },
     {
-      title: 'Action',
       key: 'action',
+      dataIndex: 'key',
+      title: 'Action',
       render: (text, record) => (
         <div>
           <a>Invite {record.name}</a>
@@ -61,9 +70,12 @@ export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...pr
     },
   ];
 
-  const data = [];
+
+
+  const dataSource: Data[] = [];
+
   for (let i = 0; i < 15; i++) {
-    data.push({
+    dataSource.push({
       key: i,
       name: 'John Brown' + i,
       age: 18 + i,
@@ -71,7 +83,6 @@ export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...pr
       tags: ['nice', 'developer'],
     })
   }
-  console.log(data, '===')
 
   const onSelectChange = (selectedRowKeys) => {
     console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -84,6 +95,6 @@ export const Default: FunctionComponent<ComponentProps<typeof Table>> = ({ ...pr
   };
 
   return <div>
-    <Table dataSource={data} columns={columns} rowSelection={rowSelection} scroll={{y: '350px'}}  {...props} />
+    <Table<Data> dataSource={dataSource} columns={columns} rowSelection={rowSelection} scroll={{ y: '350px' }} />
   </div>
 }
