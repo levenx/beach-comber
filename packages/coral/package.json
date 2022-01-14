@@ -3,6 +3,7 @@
   "version": "1.0.5-alpha.0",
   "description": "",
   "main": "rollup.config.js",
+  "private": true,
   "scripts": {
     "dev": "rollup -c rollup.config.js -w"
   },
@@ -21,5 +22,5 @@
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-typescript2": "^0.31.1"
   },
-  "gitHead": "e00b2b74d2a1f903a08942be57f3da5015a2a0a3"
+  "gitHead": "9df17bd674aff8f73b0e23410c3433f9e75d065b"
 }
